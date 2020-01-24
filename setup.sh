@@ -3,48 +3,66 @@
 case $1 in
     setupmc)
     echo "Installing Dependenices . . ."
-    sudo apt-get update
-    sudo apt-get install default-jre
-    sudo apt-get install default-jdk-headless
+    setupmc
 
+    echo "Creating Folders and Scripts . . ."
+    createmc
 
     ;;
 
     setupsteam)
     echo "Installing Dependencies . . ."
-    sudo dpkg --add-architecture i386
-    sudo apt-get update
-    sudo apt-get install lib32gcc1
+    setupsteam
 
+    echo "Creating Folders and Scripts . . ."
+    createsteam
 
     ;;
 
-    setupmcsteam)
+    setupboth)
     echo "Installing Dependencies for MC . . ."
-    sudo apt-get update
-    sudo apt-get install default-jre
-    sudo apt-get install default-jdk-headless
+    setupmc
 
     echo "Installing Dependencies for Steam . . ."
-    sudo dpkg --add-architecture i386
-    sudo apt-get update
-    sudo apt-get install lib32gcc1
+    setupsteam
 
-    echo "Creating Folders and scripts . . ."
-    # Minecraft Folders and scripts
-    sudo mkdir ~/servers/minecraft/
+    echo "Creating Folders and Scripts for MC . . ."
+    createmc
 
+    echo "Creating Folders and Scripts for Steam . . ."
+    createsteam
 
-    # Steamcmd Folders and scripts
-    sudo mkdir ~/servers/steamcmd/
-    
 
     ;;
 
     *)
-    echo Here are the options
-    echo setupmc - setup Minecraft server dependencies and folders
-    echo setupsteam - setup Steam server dependencies and folders as well as steamcmd
-    echo 
+    echo "Here are the options"
+    echo "setupmc - setup Minecraft server dependencies and folders"
+    echo "setupsteam - setup Steam server dependencies and folders as well as steamcmd"
+    echo "setupboth - run both of the above ^"
+
     ;;
 esac
+
+function setupmc {
+    sudo apt-get update
+    sudo apt-get install default-jre
+    sudo apt-get install default-jdk-headless
+}
+
+function setupsteam{
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt-get install lib32gcc1
+}
+
+function createmc {
+    mkdir ~/servers/
+    mkdir ~/servers/minecraft
+
+    echo "#!/bin/sh" >> ~/servers/minecraft/create.sh
+}
+
+function createsteam{
+    mkdir ~/servers
+}

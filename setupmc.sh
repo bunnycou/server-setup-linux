@@ -13,7 +13,7 @@ case $1 in
     vanilla || v)
         mkdir /vanilla-$ver
         # hard coded because I am bad
-        curl https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar -o /vanilla-$ver/server.jar
+        curl https://noahcou.github.io/fishcurl/vanilla/$ver/server.jar -o /vanilla-$ver/server.jar
         echo "java -jar server.jar -xmx 8G" >> /vanilla-$ver/start.sh
         chmod +x /vanilla-$ver/start.sh
         echo "sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver" >> /vanilla-$ver/screen.sh

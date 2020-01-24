@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ver=""
+ver=''
 
 if [$# == 3]
 then
@@ -13,18 +13,18 @@ case $1 in
     vanilla || v)
         mkdir /vanilla-$ver
         # hard coded because I am bad
-        curl https://noahcou.github.io/fishcurl/vanilla/$ver/server.jar -o /vanilla-$ver/server.jar
-        echo "java -jar server.jar -xmx 8G" >> /vanilla-$ver/start.sh
+        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o /vanilla-$ver/server.jar
+        echo 'java -jar server.jar -xmx 8G' >> /vanilla-$ver/start.sh
         chmod +x /vanilla-$ver/start.sh
-        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver" >> /vanilla-$ver/screen.sh
+        echo 'sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver' >> /vanilla-$ver/screen.sh
     ;;
 
     paper || p)
         mkdir /paper-$ver
         curl https://papermc.io/api/v1/paper/$2/latest/download -o /paper-$ver/server.jar
-        echo "java -jar server.jar -xmx 8G" >> /paper-$ver/start.sh
+        echo 'java -jar server.jar -xmx 8G' >> /paper-$ver/start.sh
         chmod +x /paper-$ver/start.sh
-        echo "sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver" >> /paper-$ver/screen.sh
+        echo 'sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver' >> /paper-$ver/screen.sh
     ;;
 
     bedrock || b)

@@ -46,8 +46,7 @@ esac
 
 function setupmc {
     sudo apt-get update
-    sudo apt-get install default-jre
-    sudo apt-get install default-jdk-headless
+    sudo apt-get install default-jre-headless default-jdk-headless
 }
 
 function setupsteam{

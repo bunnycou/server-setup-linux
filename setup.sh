@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $1 in
-    setupmc)
+    setupmc || mc)
     echo "Installing Dependenices . . ."
     setupmc
 
@@ -10,7 +10,7 @@ case $1 in
 
     ;;
 
-    setupsteam)
+    setupsteam || steam || s)
     echo "Installing Dependencies . . ."
     setupsteam
 
@@ -19,7 +19,7 @@ case $1 in
 
     ;;
 
-    setupboth)
+    setupboth || both || b)
     echo "Installing Dependencies for MC . . ."
     setupmc
 
@@ -51,18 +51,25 @@ function setupmc {
 }
 
 function setupsteam{
+    sudo add-apt-repository multiverse
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install lib32gcc1
+    sudo apt-get install lib32gcc1 steamcmd
+    ln -s /usr/games/steamcmd steamcmd
 }
 
 function createmc {
     mkdir ~/servers/
     mkdir ~/servers/minecraft
 
+    # code from setupmc.sh echoed into a script
     echo "#!/bin/sh" >> ~/servers/minecraft/create.sh
 }
 
 function createsteam{
     mkdir ~/servers
+    mkdir ~/servers/steam
+
+    # code from setupsteam.sh echoed into a script
+    echo "#!/bin/sh" >> ~/servers/steam/create.sh
 }

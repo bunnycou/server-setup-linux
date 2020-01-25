@@ -1,7 +1,7 @@
 #!/bin/sh
 
 d=$(date +%d-%m-%Y)
-ver=''
+ver=""
 
 if [$# == 3]
 then
@@ -14,17 +14,17 @@ case $1 in
     vanilla || v)
         mkdir /vanilla-$ver
         curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o /vanilla-$ver/server.jar
-        echo 'java -jar server.jar -xmx 4G' >> /vanilla-$ver/start.sh
+        echo "java -jar server.jar -xmx 4G" >> /vanilla-$ver/start.sh
         chmod +x /vanilla-$ver/start.sh
-        echo 'sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver' >> /vanilla-$ver/screen.sh
+        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver" >> /vanilla-$ver/screen.sh
     ;;
 
     paper || p)
         mkdir /paper-$ver
         curl https://papermc.io/api/v1/paper/$2/latest/download -o /paper-$ver/server.jar
-        echo 'java -jar server.jar -xmx 6G' >> /paper-$ver/start.sh
+        echo "java -jar server.jar -xmx 6G" >> /paper-$ver/start.sh
         chmod +x /paper-$ver/start.sh
-        echo 'sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver' >> /paper-$ver/screen.sh
+        echo "sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver" >> /paper-$ver/screen.sh
     ;;
 
     bedrock || b)
@@ -35,9 +35,9 @@ case $1 in
     forge || f)
         mkdir /forge-$ver
         curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o /forge-$ver/server-$d.jar
-        echo 'java -jar server.jar -xmx 8G' >> /forge-$ver/start.sh
+        echo "java -jar server.jar -xmx 8G" >> /forge-$ver/start.sh
         chmod +x /forge-$ver/start.sh
-        echo 'sudo screen ~/servers/minecraft/forge-$ver/start.sh -d -S paper-$ver' >> /paper-$ver/screen.sh
+        echo "sudo screen ~/servers/minecraft/forge-$ver/start.sh -d -S paper-$ver" >> /paper-$ver/screen.sh
     ;;
 
     sponge || s)
@@ -46,22 +46,22 @@ case $1 in
     ;;
 
     *)
-        echo 'To check available versions for v, b, f; See:'
-        echo 'https://noahcou.github.io/fishcurl/ OR'
-        echo 'https://github.com/noahcou/fishcurl/'
-        echo 'Here are the available options'
-        echo ' - First Argument - '
-        echo 'vanilla - install a vanilla server (pulls from my own files)'
-        echo 'paper - install a paper plugin server'
-        echo 'bedrock - install a bedrock server (pulls from my own files)'
-        echo 'forge - install a standard modded minecraft server (pulls from my own files)'
-        echo 'FORGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)'
-        echo 'sponge - install a modded plugin compatible server (in testing)'
-        echo ' - Second Argument - '
-        echo 'Put MC version here - 1.15.2 - Please use that standard format!'
-        echo ' - Third Argument - (OPTIONAL)'
-        echo 'Optionally put a name for your server folder here'
-        echo 'Default is /vanilla-1.15.2 (/type-version)'
-        echo 'If you include this Argument it will be /type-customtext'
+        echo "To check available versions for v, b, f; See:"
+        echo "https://noahcou.github.io/fishcurl/ OR"
+        echo "https://github.com/noahcou/fishcurl/"
+        echo "Here are the available options"
+        echo " - First Argument - "
+        echo "vanilla - install a vanilla server (pulls from my own files)"
+        echo "paper - install a paper plugin server"
+        echo "bedrock - install a bedrock server (pulls from my own files)"
+        echo "forge - install a standard modded minecraft server (pulls from my own files)"
+        echo "FORGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)"
+        echo "sponge - install a modded plugin compatible server (in testing)"
+        echo " - Second Argument - "
+        echo "Put MC version here - 1.15.2 - Please use that standard format!"
+        echo " - Third Argument - (OPTIONAL)"
+        echo "Optionally put a name for your server folder here"
+        echo "Default is /vanilla-1.15.2 (/type-version)"
+        echo "If you include this Argument it will be /type-customtext"
     ;;
 esac

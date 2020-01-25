@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $1 in
-    setupmc || mc)
+    setupmc|mc)
     echo "Installing Dependenices . . ."
     setupmc
 
@@ -10,7 +10,7 @@ case $1 in
 
     ;;
 
-    setupsteam || steam || s)
+    setupsteam|steam|s)
     echo "Installing Dependencies . . ."
     setupsteam
 
@@ -19,7 +19,7 @@ case $1 in
 
     ;;
 
-    setupboth || both || b)
+    setupboth|both|b)
     echo "Installing Dependencies for MC . . ."
     setupmc
 
@@ -55,7 +55,7 @@ function setupsteam{
     sudo dpkg --add-architecture i386
     sudo apt-get update
     sudo apt-get install lib32gcc1 steamcmd
-    ln -s /usr/games/steamcmd steamcmd
+    sudo ln -s /usr/games/steamcmd steamcmd
 }
 
 function createmc {
@@ -63,7 +63,7 @@ function createmc {
     mkdir ~/servers/minecraft
 
     # code from setupmc.sh echoed into a script
-    echo "#!/bin/sh" >> ~/servers/minecraft/create.sh
+    echo "#!/bin/sh" >> ~/servers/minecraft/setup.sh
 }
 
 function createsteam{
@@ -71,5 +71,5 @@ function createsteam{
     mkdir ~/servers/steam
 
     # code from setupsteam.sh echoed into a script
-    echo "#!/bin/sh" >> ~/servers/steam/create.sh
+    echo "#!/bin/sh" >> ~/servers/steam/setup.sh
 }

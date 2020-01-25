@@ -11,7 +11,7 @@ else
 fi
 
 case $1 in
-    vanilla || v)
+    vanilla|v)
         mkdir /vanilla-$ver
         curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o /vanilla-$ver/server.jar
         echo "java -jar server.jar -xmx 4G" >> /vanilla-$ver/start.sh
@@ -19,29 +19,31 @@ case $1 in
         echo "sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver" >> /vanilla-$ver/screen.sh
     ;;
 
-    paper || p)
+    paper|p)
         mkdir /paper-$ver
         curl https://papermc.io/api/v1/paper/$2/latest/download -o /paper-$ver/server.jar
-        echo "java -jar server.jar -xmx 6G" >> /paper-$ver/start.sh
+        echo "java -jar server.jar -xmx 8G" >> /paper-$ver/start.sh
         chmod +x /paper-$ver/start.sh
         echo "sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver" >> /paper-$ver/screen.sh
     ;;
 
-    bedrock || b)
-        mkdir /bedrock-$ver
+    bedrock|b)
+        echo "TODO"
+        # mkdir /bedrock-$ver
         # download tar.gz and extract it TODO
         # curl https://noahcou.github.io/fishcurl/bedrock/$2/ -o /vanilla-$ver/server.jar
 
-    forge || f)
+    forge|f)
         mkdir /forge-$ver
         curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o /forge-$ver/server-$d.jar
-        echo "java -jar server.jar -xmx 8G" >> /forge-$ver/start.sh
+        echo "java -jar server.jar -xmx 12G" >> /forge-$ver/start.sh
         chmod +x /forge-$ver/start.sh
-        echo "sudo screen ~/servers/minecraft/forge-$ver/start.sh -d -S paper-$ver" >> /paper-$ver/screen.sh
+        echo "sudo screen ~/servers/minecraft/forge-$ver/start.sh -d -S forge-$ver" >> /forge-$ver/screen.sh
     ;;
 
-    sponge || s)
-        mkdir /sponge-$ver
+    sponge|s)
+        echo "TODO"
+        # mkdir /sponge-$ver
         # TODO
     ;;
 
@@ -49,8 +51,9 @@ case $1 in
         echo "To check available versions for v, b, f; See:"
         echo "https://noahcou.github.io/fishcurl/ OR"
         echo "https://github.com/noahcou/fishcurl/"
+        echo "Typically I only like to add 1.14.4 and later as those are multithread compatible"
         echo "Here are the available options"
-        echo " - First Argument - "
+        echo " - First Argument - (one letter also works!)"
         echo "vanilla - install a vanilla server (pulls from my own files)"
         echo "paper - install a paper plugin server"
         echo "bedrock - install a bedrock server (pulls from my own files)"
@@ -63,5 +66,6 @@ case $1 in
         echo "Optionally put a name for your server folder here"
         echo "Default is /vanilla-1.15.2 (/type-version)"
         echo "If you include this Argument it will be /type-customtext"
+        echo "No Spaces"
     ;;
 esac

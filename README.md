@@ -4,4 +4,6 @@ To obtain the setup.sh on your server do `curl https://noahcou.github.io/fishcur
 
 It is recommended to do that in your `~/` directory
 
+
+
 Thank you cear for the echoscript.exe!

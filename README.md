@@ -13,4 +13,4 @@ It is recommended to do that in your `~/` directory
 - [x] Auto accept EULA and add clause to README.md
 - [x] Finish setupsteam.sh to stop the user from using bad arguments
 - [ ] eventually add sponge and bedrock support for mc . . . eventually . . .
-- [ ] *learn README.md formatting*
+- [x] *learn README.md formatting*

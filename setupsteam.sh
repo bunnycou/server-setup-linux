@@ -14,17 +14,17 @@ case $1 in
     ;;
 
     *)
-        if [$# == 0]
+        if [ $# == 0 ]
         then
         echo "Here are the options"
         echo "12345 - Appid of server, can be found at https://steamdb.info"
         echo "text - Name of server folder; NO SPACES"
         echo "OPTIONAL 3RD ARGUMENT"
         echo "username - username for steam account for account required downloads"
-        ;;
+        return
         fi
 
-        if [$# == 3]
+        if [ $# == 3 ]
         then
             echo "Setting up $2 . . ."
             mkdir /$2

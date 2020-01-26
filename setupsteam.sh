@@ -14,7 +14,7 @@ case $1 in
     ;;
 
     *)
-        if [ $# == 0 ]
+        if [ $# = 0 ]
         then
         echo "Here are the options"
         echo "12345 - Appid of server, can be found at https://steamdb.info"
@@ -24,7 +24,7 @@ case $1 in
         return
         fi
 
-        if [ $# == 3 ]
+        if [ $# = 3 ]
         then
             echo "Setting up $2 . . ."
             mkdir /$2

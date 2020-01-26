@@ -18,7 +18,7 @@ case $1 in
     echo 'd=$(date +%d-%m-%Y)' >> ~/servers/minecraft/setup.sh
     echo 'ver=""' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
-    echo 'if [ $# == 3 ]' >> ~/servers/minecraft/setup.sh
+    echo 'if [ $# = 3 ]' >> ~/servers/minecraft/setup.sh
     echo 'then' >> ~/servers/minecraft/setup.sh
     echo '    ver=$3' >> ~/servers/minecraft/setup.sh
     echo 'else' >> ~/servers/minecraft/setup.sh
@@ -88,6 +88,7 @@ case $1 in
 
 
 
+
     ;;
 
     setupsteam|steam|s)
@@ -122,7 +123,7 @@ case $1 in
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    *)' >> ~/servers/steam/setup.sh
-    echo '        if [ $# == 0 ]' >> ~/servers/steam/setup.sh
+    echo '        if [ $# = 0 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
     echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh
@@ -132,7 +133,7 @@ case $1 in
     echo '        return' >> ~/servers/steam/setup.sh
     echo '        fi' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
-    echo '        if [ $# == 3 ]' >> ~/servers/steam/setup.sh
+    echo '        if [ $# = 3 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '            echo "Setting up $2 . . ."' >> ~/servers/steam/setup.sh
     echo '            mkdir /$2' >> ~/servers/steam/setup.sh
@@ -191,7 +192,7 @@ case $1 in
     echo 'd=$(date +%d-%m-%Y)' >> ~/servers/minecraft/setup.sh
     echo 'ver=""' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
-    echo 'if [ $# == 3 ]' >> ~/servers/minecraft/setup.sh
+    echo 'if [ $# = 3 ]' >> ~/servers/minecraft/setup.sh
     echo 'then' >> ~/servers/minecraft/setup.sh
     echo '    ver=$3' >> ~/servers/minecraft/setup.sh
     echo 'else' >> ~/servers/minecraft/setup.sh
@@ -284,7 +285,7 @@ case $1 in
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    *)' >> ~/servers/steam/setup.sh
-    echo '        if [ $# == 0 ]' >> ~/servers/steam/setup.sh
+    echo '        if [ $# = 0 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
     echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh
@@ -294,7 +295,7 @@ case $1 in
     echo '        return' >> ~/servers/steam/setup.sh
     echo '        fi' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
-    echo '        if [ $# == 3 ]' >> ~/servers/steam/setup.sh
+    echo '        if [ $# = 3 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '            echo "Setting up $2 . . ."' >> ~/servers/steam/setup.sh
     echo '            mkdir /$2' >> ~/servers/steam/setup.sh
@@ -325,6 +326,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup.sh
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo 'esac' >> ~/servers/steam/setup.sh
+
 
 
     ;;

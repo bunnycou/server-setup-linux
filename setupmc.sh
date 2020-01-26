@@ -3,7 +3,7 @@
 d=$(date +%d-%m-%Y)
 ver=""
 
-if [ $# == 3 ]
+if [ $# = 3 ]
 then
     ver=$3
 else

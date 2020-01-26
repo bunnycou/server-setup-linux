@@ -27,7 +27,7 @@ case $1 in
         if [ $# = 3 ]
         then
             echo "Setting up $2 . . ."
-            mkdir /$2
+            mkdir $2
             cd $2
             echo "steamcmd +login $3 +app_update $1 validate +quit" >> update.sh
             chmod +x update.sh
@@ -40,7 +40,7 @@ case $1 in
             cd ..
         else
             echo "Setting up $2 . . ."
-            mkdir /$2
+            mkdir $2
             cd $2
             echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update.sh
             chmod +x update.sh

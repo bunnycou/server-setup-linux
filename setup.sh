@@ -27,7 +27,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup.sh
     echo 'case $1 in' >> ~/servers/minecraft/setup.sh
     echo '    vanilla|v)' >> ~/servers/minecraft/setup.sh
-    echo '        mkdir /vanilla-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup.sh
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o /vanilla-$ver/server.jar' >> ~/servers/minecraft/setup.sh
     echo '        echo "java -jar server.jar -xmx 4G" >> /vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x /vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
@@ -35,7 +35,7 @@ case $1 in
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    paper|p)' >> ~/servers/minecraft/setup.sh
-    echo '        mkdir /paper-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup.sh
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o /paper-$ver/server.jar' >> ~/servers/minecraft/setup.sh
     echo '        echo "java -jar server.jar -xmx 8G" >> /paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x /paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
@@ -44,13 +44,13 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    bedrock|b)' >> ~/servers/minecraft/setup.sh
     echo '        echo "TODO"' >> ~/servers/minecraft/setup.sh
-    echo '        # mkdir /bedrock-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        # mkdir bedrock-$ver' >> ~/servers/minecraft/setup.sh
     echo '        # download tar.gz and extract it TODO' >> ~/servers/minecraft/setup.sh
     echo '        # curl https://noahcou.github.io/fishcurl/bedrock/$2/ -o /vanilla-$ver/server.jar' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    forge|f)' >> ~/servers/minecraft/setup.sh
-    echo '        mkdir /forge-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup.sh
     echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o /forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup.sh
     echo '        echo "java -jar server.jar -xmx 12G" >> /forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x /forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
@@ -59,7 +59,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    sponge|s)' >> ~/servers/minecraft/setup.sh
     echo '        echo "TODO"' >> ~/servers/minecraft/setup.sh
-    echo '        # mkdir /sponge-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        # mkdir sponge-$ver' >> ~/servers/minecraft/setup.sh
     echo '        # TODO' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
@@ -136,7 +136,7 @@ case $1 in
     echo '        if [ $# = 3 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '            echo "Setting up $2 . . ."' >> ~/servers/steam/setup.sh
-    echo '            mkdir /$2' >> ~/servers/steam/setup.sh
+    echo '            mkdir $2' >> ~/servers/steam/setup.sh
     echo '            cd $2' >> ~/servers/steam/setup.sh
     echo '            echo "steamcmd +login $3 +app_update $1 validate +quit" >> update.sh' >> ~/servers/steam/setup.sh
     echo '            chmod +x update.sh' >> ~/servers/steam/setup.sh
@@ -149,7 +149,7 @@ case $1 in
     echo '            cd ..' >> ~/servers/steam/setup.sh
     echo '        else' >> ~/servers/steam/setup.sh
     echo '            echo "Setting up $2 . . ."' >> ~/servers/steam/setup.sh
-    echo '            mkdir /$2' >> ~/servers/steam/setup.sh
+    echo '            mkdir $2' >> ~/servers/steam/setup.sh
     echo '            cd $2' >> ~/servers/steam/setup.sh
     echo '            echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update.sh' >> ~/servers/steam/setup.sh
     echo '            chmod +x update.sh' >> ~/servers/steam/setup.sh
@@ -201,7 +201,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup.sh
     echo 'case $1 in' >> ~/servers/minecraft/setup.sh
     echo '    vanilla|v)' >> ~/servers/minecraft/setup.sh
-    echo '        mkdir /vanilla-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup.sh
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o /vanilla-$ver/server.jar' >> ~/servers/minecraft/setup.sh
     echo '        echo "java -jar server.jar -xmx 4G" >> /vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x /vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
@@ -209,7 +209,7 @@ case $1 in
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    paper|p)' >> ~/servers/minecraft/setup.sh
-    echo '        mkdir /paper-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup.sh
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o /paper-$ver/server.jar' >> ~/servers/minecraft/setup.sh
     echo '        echo "java -jar server.jar -xmx 8G" >> /paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x /paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
@@ -218,13 +218,13 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    bedrock|b)' >> ~/servers/minecraft/setup.sh
     echo '        echo "TODO"' >> ~/servers/minecraft/setup.sh
-    echo '        # mkdir /bedrock-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        # mkdir bedrock-$ver' >> ~/servers/minecraft/setup.sh
     echo '        # download tar.gz and extract it TODO' >> ~/servers/minecraft/setup.sh
     echo '        # curl https://noahcou.github.io/fishcurl/bedrock/$2/ -o /vanilla-$ver/server.jar' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    forge|f)' >> ~/servers/minecraft/setup.sh
-    echo '        mkdir /forge-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup.sh
     echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o /forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup.sh
     echo '        echo "java -jar server.jar -xmx 12G" >> /forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x /forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
@@ -233,7 +233,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    sponge|s)' >> ~/servers/minecraft/setup.sh
     echo '        echo "TODO"' >> ~/servers/minecraft/setup.sh
-    echo '        # mkdir /sponge-$ver' >> ~/servers/minecraft/setup.sh
+    echo '        # mkdir sponge-$ver' >> ~/servers/minecraft/setup.sh
     echo '        # TODO' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
@@ -298,7 +298,7 @@ case $1 in
     echo '        if [ $# = 3 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '            echo "Setting up $2 . . ."' >> ~/servers/steam/setup.sh
-    echo '            mkdir /$2' >> ~/servers/steam/setup.sh
+    echo '            mkdir $2' >> ~/servers/steam/setup.sh
     echo '            cd $2' >> ~/servers/steam/setup.sh
     echo '            echo "steamcmd +login $3 +app_update $1 validate +quit" >> update.sh' >> ~/servers/steam/setup.sh
     echo '            chmod +x update.sh' >> ~/servers/steam/setup.sh
@@ -311,7 +311,7 @@ case $1 in
     echo '            cd ..' >> ~/servers/steam/setup.sh
     echo '        else' >> ~/servers/steam/setup.sh
     echo '            echo "Setting up $2 . . ."' >> ~/servers/steam/setup.sh
-    echo '            mkdir /$2' >> ~/servers/steam/setup.sh
+    echo '            mkdir $2' >> ~/servers/steam/setup.sh
     echo '            cd $2' >> ~/servers/steam/setup.sh
     echo '            echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update.sh' >> ~/servers/steam/setup.sh
     echo '            chmod +x update.sh' >> ~/servers/steam/setup.sh

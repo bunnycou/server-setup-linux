@@ -14,6 +14,15 @@ case $1 in
     ;;
 
     *)
+        if [$# == 0]
+        then
+        echo "Here are the options"
+        echo "12345 - Appid of server, can be found at https://steamdb.info"
+        echo "text - Name of server folder; NO SPACES"
+        echo "OPTIONAL 3RD ARGUMENT"
+        echo "username - username for steam account for account required downloads"
+        ;;
+        fi
 
         if [$# == 3]
         then

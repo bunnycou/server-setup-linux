@@ -121,6 +121,15 @@ case $1 in
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    *)' >> ~/servers/steam/setup.sh
+    echo '        if [$# == 0]' >> ~/servers/steam/setup.sh
+    echo '        then' >> ~/servers/steam/setup.sh
+    echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
+    echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh
+    echo '        echo "text - Name of server folder; NO SPACES"' >> ~/servers/steam/setup.sh
+    echo '        echo "OPTIONAL 3RD ARGUMENT"' >> ~/servers/steam/setup.sh
+    echo '        echo "username - username for steam account for account required downloads"' >> ~/servers/steam/setup.sh
+    echo '        ;;' >> ~/servers/steam/setup.sh
+    echo '        fi' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '        if [$# == 3]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
@@ -153,6 +162,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup.sh
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo 'esac' >> ~/servers/steam/setup.sh
+
 
     ;;
 
@@ -273,6 +283,15 @@ case $1 in
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    *)' >> ~/servers/steam/setup.sh
+    echo '        if [$# == 0]' >> ~/servers/steam/setup.sh
+    echo '        then' >> ~/servers/steam/setup.sh
+    echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
+    echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh
+    echo '        echo "text - Name of server folder; NO SPACES"' >> ~/servers/steam/setup.sh
+    echo '        echo "OPTIONAL 3RD ARGUMENT"' >> ~/servers/steam/setup.sh
+    echo '        echo "username - username for steam account for account required downloads"' >> ~/servers/steam/setup.sh
+    echo '        ;;' >> ~/servers/steam/setup.sh
+    echo '        fi' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '        if [$# == 3]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh

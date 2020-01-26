@@ -17,6 +17,8 @@ case $1 in
         echo "java -jar server.jar -xmx 4G" >> vanilla-$ver/start.sh
         chmod +x vanilla-$ver/start.sh
         echo "sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver" >> vanilla-$ver/screen.sh
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt
+        echo "eula=true" >> vanilla-$ver/eula.txt
     ;;
 
     paper|p)
@@ -25,6 +27,8 @@ case $1 in
         echo "java -jar server.jar -xmx 8G" >> paper-$ver/start.sh
         chmod +x paper-$ver/start.sh
         echo "sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver" >> paper-$ver/screen.sh
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt
+        echo "eula=true" >> paper-$ver/eula.txt
     ;;
 
     bedrock|b)
@@ -40,6 +44,8 @@ case $1 in
         echo "java -jar server.jar -xmx 12G" >> forge-$ver/start.sh
         chmod +x forge-$ver/start.sh
         echo "sudo screen ~/servers/minecraft/forge-$ver/start.sh -d -S forge-$ver" >> forge-$ver/screen.sh
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt
+        echo "eula=true" >> forge-$ver/eula.txt
     ;;
 
     sponge|s)

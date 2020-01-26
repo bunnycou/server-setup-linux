@@ -32,6 +32,8 @@ case $1 in
     echo '        echo "java -jar server.jar -xmx 4G" >> vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver" >> vanilla-$ver/screen.sh' >> ~/servers/minecraft/setup.sh
+    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
+    echo '        echo "eula=true" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    paper|p)' >> ~/servers/minecraft/setup.sh
@@ -40,6 +42,8 @@ case $1 in
     echo '        echo "java -jar server.jar -xmx 8G" >> paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver" >> paper-$ver/screen.sh' >> ~/servers/minecraft/setup.sh
+    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
+    echo '        echo "eula=true" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    bedrock|b)' >> ~/servers/minecraft/setup.sh
@@ -55,6 +59,8 @@ case $1 in
     echo '        echo "java -jar server.jar -xmx 12G" >> forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start.sh -d -S forge-$ver" >> forge-$ver/screen.sh' >> ~/servers/minecraft/setup.sh
+    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
+    echo '        echo "eula=true" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    sponge|s)' >> ~/servers/minecraft/setup.sh
@@ -91,6 +97,8 @@ case $1 in
 
 
 
+
+
     ;;
 
     setupsteam|steam|s)
@@ -118,14 +126,14 @@ case $1 in
     echo '' >> ~/servers/steam/setup.sh
     echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
     echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh
-    echo '        echo "text - Name of server folder; NO SPACES"' >> ~/servers/steam/setup.sh
+    echo '        echo "text - Name of server folder; NO SPACES - required"' >> ~/servers/steam/setup.sh
     echo '        echo "OPTIONAL 3RD ARGUMENT"' >> ~/servers/steam/setup.sh
     echo '        echo "username - username for steam account for account required downloads"' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    *)' >> ~/servers/steam/setup.sh
-    echo '        if [ $# = 0 ]' >> ~/servers/steam/setup.sh
+    echo '        if [ $# -le 1 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
     echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh
@@ -168,6 +176,7 @@ case $1 in
     echo 'esac' >> ~/servers/steam/setup.sh
 
 
+
     ;;
 
     setupboth|both|b)
@@ -208,6 +217,8 @@ case $1 in
     echo '        echo "java -jar server.jar -xmx 4G" >> vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x vanilla-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start.sh -d -S vanilla-$ver" >> vanilla-$ver/screen.sh' >> ~/servers/minecraft/setup.sh
+    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
+    echo '        echo "eula=true" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    paper|p)' >> ~/servers/minecraft/setup.sh
@@ -216,6 +227,8 @@ case $1 in
     echo '        echo "java -jar server.jar -xmx 8G" >> paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x paper-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start.sh -d -S paper-$ver" >> paper-$ver/screen.sh' >> ~/servers/minecraft/setup.sh
+    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
+    echo '        echo "eula=true" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    bedrock|b)' >> ~/servers/minecraft/setup.sh
@@ -231,6 +244,8 @@ case $1 in
     echo '        echo "java -jar server.jar -xmx 12G" >> forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        chmod +x forge-$ver/start.sh' >> ~/servers/minecraft/setup.sh
     echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start.sh -d -S forge-$ver" >> forge-$ver/screen.sh' >> ~/servers/minecraft/setup.sh
+    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
+    echo '        echo "eula=true" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    sponge|s)' >> ~/servers/minecraft/setup.sh
@@ -280,14 +295,14 @@ case $1 in
     echo '' >> ~/servers/steam/setup.sh
     echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
     echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh
-    echo '        echo "text - Name of server folder; NO SPACES"' >> ~/servers/steam/setup.sh
+    echo '        echo "text - Name of server folder; NO SPACES - required"' >> ~/servers/steam/setup.sh
     echo '        echo "OPTIONAL 3RD ARGUMENT"' >> ~/servers/steam/setup.sh
     echo '        echo "username - username for steam account for account required downloads"' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    ;;' >> ~/servers/steam/setup.sh
     echo '' >> ~/servers/steam/setup.sh
     echo '    *)' >> ~/servers/steam/setup.sh
-    echo '        if [ $# = 0 ]' >> ~/servers/steam/setup.sh
+    echo '        if [ $# -le 1 ]' >> ~/servers/steam/setup.sh
     echo '        then' >> ~/servers/steam/setup.sh
     echo '        echo "Here are the options"' >> ~/servers/steam/setup.sh
     echo '        echo "12345 - Appid of server, can be found at https://steamdb.info"' >> ~/servers/steam/setup.sh

@@ -7,14 +7,14 @@ case $1 in
 
         echo "Here are the options"
         echo "12345 - Appid of server, can be found at https://steamdb.info"
-        echo "text - Name of server folder; NO SPACES"
+        echo "text - Name of server folder; NO SPACES - required"
         echo "OPTIONAL 3RD ARGUMENT"
         echo "username - username for steam account for account required downloads"
 
     ;;
 
     *)
-        if [ $# = 0 ]
+        if [ $# -le 1 ]
         then
         echo "Here are the options"
         echo "12345 - Appid of server, can be found at https://steamdb.info"

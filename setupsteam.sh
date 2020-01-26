@@ -29,27 +29,29 @@ case $1 in
             echo "Setting up $2 . . ."
             mkdir $2
             cd $2
-            echo "steamcmd +login $3 +app_update $1 validate +quit" >> update.sh
-            chmod +x update.sh
+            echo "steamcmd +login $3 +app_update $1 validate +quit" >> update
+            chmod +x update
             echo "Downloading and installing $2"
             steamcmd +login $3 +app_update $1 validate +quit
 
-            echo "Due to the complexity of steam servers a screen.sh will be created for you but you will be required to configure the APP yourself"
-            echo "I personally use a start.sh that is then executed by the screen.sh for convenience!"
-            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen.sh
+            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"
+            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"
+            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen
+            chmod +x screen
             cd ..
         else
             echo "Setting up $2 . . ."
             mkdir $2
             cd $2
-            echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update.sh
-            chmod +x update.sh
+            echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update
+            chmod +x update
             echo "Downloading and installing $2"
             steamcmd +login anonymous +app_update $1 validate +quit
 
-            echo "Due to the complexity of steam servers a screen.sh will be created for you but you will be required to configure the APP yourself"
-            echo "I personally use a start.sh that is then executed by the screen.sh for convenience!"
-            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen.sh
+            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"
+            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"
+            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen
+            chmod +x screen
             cd ..
         fi
 

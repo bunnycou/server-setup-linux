@@ -49,7 +49,7 @@ function setupmc {
     sudo apt-get install default-jre-headless default-jdk-headless
 }
 
-function setupsteam{
+function setupsteam {
     sudo add-apt-repository multiverse
     sudo dpkg --add-architecture i386
     sudo apt-get update
@@ -136,7 +136,7 @@ function createmc {
 
 }
 
-function createsteam{
+function createsteam {
     mkdir ~/servers
     mkdir ~/servers/steam
 

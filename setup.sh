@@ -96,12 +96,13 @@ case $1 in
     sudo dpkg --add-architecture i386
     sudo apt-get update
     sudo apt-get install lib32gcc1 steamcmd
-    sudo ln -s /usr/games/steamcmd steamcmd
 
     echo "Creating Folders and Scripts . . ."
     # createsteam
     mkdir ~/servers
     mkdir ~/servers/steam
+    mkdir ~/servers/steam/steamcmd
+    sudo ln -s /usr/games/steamcmd ~/servers/steam/steamcmd/steamcmd
 
     # code from setupsteam.sh echoed into a script
     echo '#!/bin/sh' >> ~/servers/steam/setup.sh
@@ -167,7 +168,6 @@ case $1 in
     sudo dpkg --add-architecture i386
     sudo apt-get update
     sudo apt-get install lib32gcc1 steamcmd
-    sudo ln -s /usr/games/steamcmd steamcmd
 
     echo "Creating Folders and Scripts for MC . . ."
     # createmc
@@ -253,6 +253,8 @@ case $1 in
     # createsteam
     mkdir ~/servers
     mkdir ~/servers/steam
+    mkdir ~/servers/steam/steamcmd
+    sudo ln -s /usr/games/steamcmd ~/servers/steam/steamcmd/steamcmd
 
     # code from setupsteam.sh echoed into a script
     echo '#!/bin/sh' >> ~/servers/steam/setup.sh

@@ -47,6 +47,7 @@ case $1 in
     echo '        # mkdir /bedrock-$ver' >> ~/servers/minecraft/setup.sh
     echo '        # download tar.gz and extract it TODO' >> ~/servers/minecraft/setup.sh
     echo '        # curl https://noahcou.github.io/fishcurl/bedrock/$2/ -o /vanilla-$ver/server.jar' >> ~/servers/minecraft/setup.sh
+    echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    forge|f)' >> ~/servers/minecraft/setup.sh
     echo '        mkdir /forge-$ver' >> ~/servers/minecraft/setup.sh
@@ -84,6 +85,7 @@ case $1 in
     echo '        echo "No Spaces"' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo 'esac' >> ~/servers/minecraft/setup.sh
+
 
     ;;
 
@@ -207,6 +209,7 @@ case $1 in
     echo '        # mkdir /bedrock-$ver' >> ~/servers/minecraft/setup.sh
     echo '        # download tar.gz and extract it TODO' >> ~/servers/minecraft/setup.sh
     echo '        # curl https://noahcou.github.io/fishcurl/bedrock/$2/ -o /vanilla-$ver/server.jar' >> ~/servers/minecraft/setup.sh
+    echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo '' >> ~/servers/minecraft/setup.sh
     echo '    forge|f)' >> ~/servers/minecraft/setup.sh
     echo '        mkdir /forge-$ver' >> ~/servers/minecraft/setup.sh
@@ -244,6 +247,7 @@ case $1 in
     echo '        echo "No Spaces"' >> ~/servers/minecraft/setup.sh
     echo '    ;;' >> ~/servers/minecraft/setup.sh
     echo 'esac' >> ~/servers/minecraft/setup.sh
+
 
     echo "Creating Folders and Scripts for Steam . . ."
     # createsteam

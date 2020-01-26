@@ -32,6 +32,7 @@ case $1 in
         # mkdir /bedrock-$ver
         # download tar.gz and extract it TODO
         # curl https://noahcou.github.io/fishcurl/bedrock/$2/ -o /vanilla-$ver/server.jar
+    ;;
 
     forge|f)
         mkdir /forge-$ver

@@ -29,9 +29,9 @@ case $1 in
     echo '    vanilla|v)' >> ~/servers/minecraft/setup
     echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -xmx4G -jar server.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx4G -jar server.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -dm -S vanilla-$ver" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -S vanilla-$ver" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -40,9 +40,9 @@ case $1 in
     echo '    paper|p)' >> ~/servers/minecraft/setup
     echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -xmx8G -jar server.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx8G -jar server.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start -dm -S paper-$ver" >> paper-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start -S paper-$ver" >> paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -58,9 +58,9 @@ case $1 in
     echo '    forge|f)' >> ~/servers/minecraft/setup
     echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -xmx12G -jar server-$d.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx12G -jar server-$d.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -dm -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -95,9 +95,8 @@ case $1 in
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
 
-
-
     chmod +x ~/servers/minecraft/setup
+
     ;;
 
     setupsteam|steam|s)
@@ -154,7 +153,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        else' >> ~/servers/steam/setup
@@ -168,7 +167,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        fi' >> ~/servers/steam/setup
@@ -215,9 +214,9 @@ case $1 in
     echo '    vanilla|v)' >> ~/servers/minecraft/setup
     echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -xmx4G -jar server.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx4G -jar server.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -dm -S vanilla-$ver" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -S vanilla-$ver" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -226,9 +225,9 @@ case $1 in
     echo '    paper|p)' >> ~/servers/minecraft/setup
     echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -xmx8G -jar server.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx8G -jar server.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start -dm -S paper-$ver" >> paper-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start -S paper-$ver" >> paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -244,9 +243,9 @@ case $1 in
     echo '    forge|f)' >> ~/servers/minecraft/setup
     echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -xmx12G -jar server-$d.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx12G -jar server-$d.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -dm -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -280,7 +279,6 @@ case $1 in
     echo '        echo "No Spaces"' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
-
 
     chmod +x ~/servers/minecraft/setup
 
@@ -331,7 +329,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        else' >> ~/servers/steam/setup
@@ -345,7 +343,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -d -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        fi' >> ~/servers/steam/setup

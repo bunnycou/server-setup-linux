@@ -14,9 +14,9 @@ case $1 in
     vanilla|v)
         mkdir vanilla-$ver
         curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar
-        echo "java -xmx4G -jar server.jar" >> vanilla-$ver/start
+        echo "java -Xmx4G -jar server.jar" >> vanilla-$ver/start
         chmod +x vanilla-$ver/start
-        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -dm -S vanilla-$ver" >> vanilla-$ver/screen
+        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -S vanilla-$ver" >> vanilla-$ver/screen
         chmod +x vanilla-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt
         echo "eula=true" >> vanilla-$ver/eula.txt
@@ -25,9 +25,9 @@ case $1 in
     paper|p)
         mkdir paper-$ver
         curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar
-        echo "java -xmx8G -jar server.jar" >> paper-$ver/start
+        echo "java -Xmx8G -jar server.jar" >> paper-$ver/start
         chmod +x paper-$ver/start
-        echo "sudo screen ~/servers/minecraft/paper-$ver/start -dm -S paper-$ver" >> paper-$ver/screen
+        echo "sudo screen ~/servers/minecraft/paper-$ver/start -S paper-$ver" >> paper-$ver/screen
         chmod +x paper-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt
         echo "eula=true" >> paper-$ver/eula.txt
@@ -43,9 +43,9 @@ case $1 in
     forge|f)
         mkdir forge-$ver
         curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar
-        echo "java -xmx12G -jar server-$d.jar" >> forge-$ver/start
+        echo "java -Xmx12G -jar server-$d.jar" >> forge-$ver/start
         chmod +x forge-$ver/start
-        echo "sudo screen ~/servers/minecraft/forge-$ver/start -dm -S forge-$ver" >> forge-$ver/screen
+        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen
         chmod +x forge-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt
         echo "eula=true" >> forge-$ver/eula.txt

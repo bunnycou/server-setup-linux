@@ -8,7 +8,7 @@ then
     ver=$3
     case $1 in # 'exit 130' to exit
         vanilla|v)
-            echo "Vanilla does not requite updates through this method, please use the normal method to download the new server"
+            echo "Vanilla does not require updates through this method, please use the normal method to download the new server"
             echo "Then simply copy the old world folder and server.properties over before starting up the new server"
         ;;
 

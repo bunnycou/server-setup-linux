@@ -28,7 +28,7 @@ case $1 in
     echo '    ver=$3' >> ~/servers/minecraft/setup
     echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
     echo '        vanilla|v)' >> ~/servers/minecraft/setup
-    echo '            echo "Vanilla does not requite updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
+    echo '            echo "Vanilla does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
     echo '            echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
     echo '        ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -277,7 +277,7 @@ case $1 in
     echo '    ver=$3' >> ~/servers/minecraft/setup
     echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
     echo '        vanilla|v)' >> ~/servers/minecraft/setup
-    echo '            echo "Vanilla does not requite updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
+    echo '            echo "Vanilla does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
     echo '            echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
     echo '        ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup

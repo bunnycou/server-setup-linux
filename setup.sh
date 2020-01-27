@@ -5,7 +5,7 @@ case $1 in
     echo "Installing Dependenices . . ."
     # setupmc
     sudo apt-get update
-    sudo apt-get install default-jre-headless default-jdk-headless unzip
+    sudo apt-get install openjdk-8-jre-headless openjdk-8-jdk-headless unzip
 
     echo "Creating Folders and Scripts . . ."
     # createmc
@@ -270,7 +270,7 @@ case $1 in
     echo "Installing Dependencies for MC . . ."
     #setupmc
     sudo apt-get update
-    sudo apt-get install default-jre-headless default-jdk-headless unzip
+    sudo apt-get install openjdk-8-jre-headless openjdk-8-jdk-headless unzip
 
     echo "Installing Dependencies for Steam . . ."
     # setupsteam

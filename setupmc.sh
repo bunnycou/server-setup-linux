@@ -1,6 +1,5 @@
 #!/bin/sh
 
-d=$(date +%d-%m-%Y)
 ver=""
 
 if [ $4 = "u" ]
@@ -26,16 +25,28 @@ then
 
         forge|f)
             echo "Updating Forge-$ver . . ."
-            rm forge-$ver/server-*.jar
-            curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar
+            rm forge-$ver/server.jar
+            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar
+            cd forge-$ver
+            java -jar installer.jar --installServer
+            rm installer.jar
+            rm installer.jar.log
+            mv forge-*.jar server.jar
+            cd ..
         ;;
 
         sponge|s)
             echo "Updating Sponge-$ver . . ."
-            rm sponge-$ver/server-*.jar
-            curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o sponge-$ver/server-$d.jar
+            rm sponge-$ver/server.jar
+            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar
+            cd sponge-$ver
+            java -jar installer.jar --installServer
+            rm installer.jar
+            rm installer.jar.log
+            mv forge-*.jar server.jar
+            cd ..
             rm sponge-$ver/mods/sponge.jar
-            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge-$d.jar
+            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar
         ;;
     esac
     exit 130
@@ -82,8 +93,14 @@ case $1 in
 
     forge|f)
         mkdir forge-$ver
-        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar
-        echo "java -Xmx10G -jar server-$d.jar" >> forge-$ver/start
+        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar
+        cd forge-$ver
+        java -jar installer.jar --installServer
+        rm installer.jar
+        rm installer.jar.log
+        mv forge-*.jar server.jar
+        cd ..
+        echo "java -Xmx10G -jar server.jar" >> forge-$ver/start
         chmod +x forge-$ver/start
         echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen
         chmod +x forge-$ver/screen
@@ -94,14 +111,20 @@ case $1 in
     sponge|s)
         mkdir sponge-$ver
         mkdir sponge-$ver/mods
-        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o sponge-$ver/server-$d.jar
-        echo "java -Xmx12G -jar server-$d.jar" >> sponge-$ver/start
+        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar
+        cd forge-$ver
+        java -jar installer.jar --installServer
+        rm installer.jar
+        rm installer.jar.log
+        mv forge-*.jar server.jar
+        cd ..
+        echo "java -Xmx12G -jar server.jar" >> sponge-$ver/start
         chmod +x sponge-$ver/start
-        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> sponge-$ver/screen
+        echo "sudo screen ~/servers/minecraft/sponge-$ver/start -S sponge-$ver" >> sponge-$ver/screen
         chmod +x sponge-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> sponge-$ver/eula.txt
         echo "eula=true" >> sponge-$ver/eula.txt
-        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge-$d.jar
+        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar
     ;;
 
     *)
@@ -115,9 +138,7 @@ case $1 in
         echo "paper - install a paper plugin server"
         echo "bedrock - install a bedrock server (pulls from my own files)"
         echo "forge - install a standard modded minecraft server (pulls from my own files)"
-        echo "FORGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)"
         echo "sponge - install a modded plugin compatible server (in testing)"
-        echo "SPONGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)"
         echo " - Second Argument - "
         echo "Put MC version here - 1.15.2 - Please use that standard format!"
         echo " - Third Argument - (OPTIONAL)"
@@ -130,5 +151,6 @@ case $1 in
         echo "DO NOT USE when upgrading/changing the minecraft version"
         echo "Third argument becomes required, make it the same as your second argument if you did not use a custom name"
         echo "./setup p 1.15.2 1.15.2 u"
+        echo "./setup p 1.15.2 coolserv u"
     ;;
 esac

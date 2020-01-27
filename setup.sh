@@ -20,7 +20,6 @@ case $1 in
     # code from setupmc.sh echoed into a script
     echo '#!/bin/sh' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'd=$(date +%d-%m-%Y)' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
@@ -46,16 +45,28 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '        forge|f)' >> ~/servers/minecraft/setup
     echo '            echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm forge-$ver/server-*.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
+    echo '            rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '            cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '            cd ..' >> ~/servers/minecraft/setup
     echo '        ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '        sponge|s)' >> ~/servers/minecraft/setup
     echo '            echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm sponge-$ver/server-*.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o sponge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
+    echo '            rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '            cd sponge-$ver' >> ~/servers/minecraft/setup
+    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '            cd ..' >> ~/servers/minecraft/setup
     echo '            rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge-$d.jar' >> ~/servers/minecraft/setup
+    echo '            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
     echo '        ;;' >> ~/servers/minecraft/setup
     echo '    esac' >> ~/servers/minecraft/setup
     echo '    exit 130' >> ~/servers/minecraft/setup
@@ -102,8 +113,14 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '    forge|f)' >> ~/servers/minecraft/setup
     echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx10G -jar server-$d.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '        cd ..' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx10G -jar server.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
@@ -114,14 +131,20 @@ case $1 in
     echo '    sponge|s)' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver/mods' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o sponge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx12G -jar server-$d.jar" >> sponge-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '        cd ..' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx12G -jar server.jar" >> sponge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/sponge-$ver/start -S sponge-$ver" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge-$d.jar' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '    *)' >> ~/servers/minecraft/setup
@@ -135,9 +158,7 @@ case $1 in
     echo '        echo "paper - install a paper plugin server"' >> ~/servers/minecraft/setup
     echo '        echo "bedrock - install a bedrock server (pulls from my own files)"' >> ~/servers/minecraft/setup
     echo '        echo "forge - install a standard modded minecraft server (pulls from my own files)"' >> ~/servers/minecraft/setup
-    echo '        echo "FORGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)"' >> ~/servers/minecraft/setup
     echo '        echo "sponge - install a modded plugin compatible server (in testing)"' >> ~/servers/minecraft/setup
-    echo '        echo "SPONGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)"' >> ~/servers/minecraft/setup
     echo '        echo " - Second Argument - "' >> ~/servers/minecraft/setup
     echo '        echo "Put MC version here - 1.15.2 - Please use that standard format!"' >> ~/servers/minecraft/setup
     echo '        echo " - Third Argument - (OPTIONAL)"' >> ~/servers/minecraft/setup
@@ -150,8 +171,10 @@ case $1 in
     echo '        echo "DO NOT USE when upgrading/changing the minecraft version"' >> ~/servers/minecraft/setup
     echo '        echo "Third argument becomes required, make it the same as your second argument if you did not use a custom name"' >> ~/servers/minecraft/setup
     echo '        echo "./setup p 1.15.2 1.15.2 u"' >> ~/servers/minecraft/setup
+    echo '        echo "./setup p 1.15.2 coolserv u"' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
+
 
 
     chmod +x ~/servers/minecraft/setup
@@ -269,7 +292,6 @@ case $1 in
     # code from setupmc.sh echoed into a script
     echo '#!/bin/sh' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'd=$(date +%d-%m-%Y)' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
@@ -295,16 +317,28 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '        forge|f)' >> ~/servers/minecraft/setup
     echo '            echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm forge-$ver/server-*.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
+    echo '            rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '            cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '            cd ..' >> ~/servers/minecraft/setup
     echo '        ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '        sponge|s)' >> ~/servers/minecraft/setup
     echo '            echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm sponge-$ver/server-*.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o sponge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
+    echo '            rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '            cd sponge-$ver' >> ~/servers/minecraft/setup
+    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar' >> ~/servers/minecraft/setup
+    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '            cd ..' >> ~/servers/minecraft/setup
     echo '            rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge-$d.jar' >> ~/servers/minecraft/setup
+    echo '            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
     echo '        ;;' >> ~/servers/minecraft/setup
     echo '    esac' >> ~/servers/minecraft/setup
     echo '    exit 130' >> ~/servers/minecraft/setup
@@ -351,8 +385,14 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '    forge|f)' >> ~/servers/minecraft/setup
     echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o forge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx10G -jar server-$d.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '        cd ..' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx10G -jar server.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
@@ -363,14 +403,20 @@ case $1 in
     echo '    sponge|s)' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver/mods' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/server.jar -o sponge-$ver/server-$d.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx12G -jar server-$d.jar" >> sponge-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar' >> ~/servers/minecraft/setup
+    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '        cd ..' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx12G -jar server.jar" >> sponge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen ~/servers/minecraft/sponge-$ver/start -S sponge-$ver" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge-$d.jar' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '    *)' >> ~/servers/minecraft/setup
@@ -384,9 +430,7 @@ case $1 in
     echo '        echo "paper - install a paper plugin server"' >> ~/servers/minecraft/setup
     echo '        echo "bedrock - install a bedrock server (pulls from my own files)"' >> ~/servers/minecraft/setup
     echo '        echo "forge - install a standard modded minecraft server (pulls from my own files)"' >> ~/servers/minecraft/setup
-    echo '        echo "FORGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)"' >> ~/servers/minecraft/setup
     echo '        echo "sponge - install a modded plugin compatible server (in testing)"' >> ~/servers/minecraft/setup
-    echo '        echo "SPONGE IS TIMESTAMPED SO YOU KNOW IF AN UPDATE IS NEEDED (updates are never required typically)"' >> ~/servers/minecraft/setup
     echo '        echo " - Second Argument - "' >> ~/servers/minecraft/setup
     echo '        echo "Put MC version here - 1.15.2 - Please use that standard format!"' >> ~/servers/minecraft/setup
     echo '        echo " - Third Argument - (OPTIONAL)"' >> ~/servers/minecraft/setup
@@ -399,6 +443,7 @@ case $1 in
     echo '        echo "DO NOT USE when upgrading/changing the minecraft version"' >> ~/servers/minecraft/setup
     echo '        echo "Third argument becomes required, make it the same as your second argument if you did not use a custom name"' >> ~/servers/minecraft/setup
     echo '        echo "./setup p 1.15.2 1.15.2 u"' >> ~/servers/minecraft/setup
+    echo '        echo "./setup p 1.15.2 coolserv u"' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
 

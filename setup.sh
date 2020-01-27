@@ -22,7 +22,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
+    echo 'if [ $4 == "u" ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
     echo '    ver=$3' >> ~/servers/minecraft/setup
     echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
@@ -131,8 +131,8 @@ case $1 in
     echo '    sponge|s)' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver/mods' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '        cd sponge-$ver' >> ~/servers/minecraft/setup
     echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
     echo '        rm installer.jar' >> ~/servers/minecraft/setup
     echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
@@ -294,7 +294,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
+    echo 'if [ $4 == "u" ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
     echo '    ver=$3' >> ~/servers/minecraft/setup
     echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
@@ -403,8 +403,8 @@ case $1 in
     echo '    sponge|s)' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver' >> ~/servers/minecraft/setup
     echo '        mkdir sponge-$ver/mods' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '        cd sponge-$ver' >> ~/servers/minecraft/setup
     echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
     echo '        rm installer.jar' >> ~/servers/minecraft/setup
     echo '        rm installer.jar.log' >> ~/servers/minecraft/setup

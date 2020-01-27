@@ -2,7 +2,7 @@
 
 ver=""
 
-if [ $4 = "u" ]
+if [ $4 == "u" ]
 then
     ver=$3
     case $1 in # 'exit 130' to exit
@@ -111,8 +111,8 @@ case $1 in
     sponge|s)
         mkdir sponge-$ver
         mkdir sponge-$ver/mods
-        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar
-        cd forge-$ver
+        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar
+        cd sponge-$ver
         java -jar installer.jar --installServer
         rm installer.jar
         rm installer.jar.log

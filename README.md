@@ -9,12 +9,15 @@ All you need is the setup.sh
 
 It is recommended to do that in your `~/` directory
 
-#### BY USING MY SCRIPTS TO MAKE MINECRAFT SERVERS YOU AGREE TO THE [MINECRAFT EULA](https://account.mojang.com/documents/minecraft_eula)
+#### BY USING MY SCRIPTS TO MAKE MINECRAFT SERVERS YOU AGREE TO THE [JAVA MINECRAFT EULA](https://account.mojang.com/documents/minecraft_eula), [BEDROCK MINECRAFT EULA](https://account.mojang.com/terms), AND [THE MICOSOFT PRIVACY POLIOCY](https://privacy.microsoft.com/en-US/privacystatement)
 
 **Thank you cear for the echoscript.exe!**
 
 ### TODO - 2020/1/26
 - [x] Auto accept EULA and add clause to README.md
 - [x] Finish setupsteam.sh to stop the user from using bad arguments
-- [ ] eventually add sponge and bedrock support for mc . . . eventually . . .
+- [x] eventually add sponge and bedrock support for mc . . . eventually . . .
 - [x] *learn README.md formatting*
+- [x] Add a way to update minecraft servers (paper, forge, sponge)
+- [x] Add a way to update the scripts
+- [ ] Add a way to update minecraft servers 2 (vanilla auto-move)(THIS ONE MAY NEVER HAPPEN)

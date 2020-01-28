@@ -63,7 +63,7 @@ case $1 in
         curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar
         echo "java -Xmx4G -jar server.jar" >> vanilla-$ver/start
         chmod +x vanilla-$ver/start
-        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -S vanilla-$ver" >> vanilla-$ver/screen
+        echo "sudo screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" >> vanilla-$ver/screen
         chmod +x vanilla-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt
         echo "eula=true" >> vanilla-$ver/eula.txt
@@ -74,7 +74,7 @@ case $1 in
         curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar
         echo "java -Xmx8G -jar server.jar" >> paper-$ver/start
         chmod +x paper-$ver/start
-        echo "sudo screen ~/servers/minecraft/paper-$ver/start -S paper-$ver" >> paper-$ver/screen
+        echo "sudo screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" >> paper-$ver/screen
         chmod +x paper-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt
         echo "eula=true" >> paper-$ver/eula.txt
@@ -87,7 +87,7 @@ case $1 in
         rm server.zip
         echo "LD_LIBRARY_PATH=. ./bedrock_server" >> bedrock-$ver/start
         chmod +x bedrock-$ver/start
-        echo "sudo screen ~/servers/minecraft/bedrock-$ver/start -S bedrock-$ver" >> bedrock-$ver/screen
+        echo "sudo screen -dmS bedrock-$ver ~/servers/minecraft/bedrock-$ver/start" >> bedrock-$ver/screen
         chmod +x bedrock-$ver/screen
     ;;
 
@@ -102,7 +102,7 @@ case $1 in
         cd ..
         echo "java -Xmx10G -jar server.jar" >> forge-$ver/start
         chmod +x forge-$ver/start
-        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen
+        echo "sudo screen -dmS forge-$ver ~/servers/minecraft/forge-$ver/start" >> forge-$ver/screen
         chmod +x forge-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt
         echo "eula=true" >> forge-$ver/eula.txt
@@ -120,7 +120,7 @@ case $1 in
         cd ..
         echo "java -Xmx12G -jar server.jar" >> sponge-$ver/start
         chmod +x sponge-$ver/start
-        echo "sudo screen ~/servers/minecraft/sponge-$ver/start -S sponge-$ver" >> sponge-$ver/screen
+        echo "sudo screen -dmS sponge-$ver ~/servers/minecraft/sponge-$ver/start" >> sponge-$ver/screen
         chmod +x sponge-$ver/screen
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> sponge-$ver/eula.txt
         echo "eula=true" >> sponge-$ver/eula.txt

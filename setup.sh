@@ -83,7 +83,7 @@ case $1 in
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx4G -jar server.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -S vanilla-$ver" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -94,7 +94,7 @@ case $1 in
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx8G -jar server.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start -S paper-$ver" >> paper-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" >> paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -107,7 +107,7 @@ case $1 in
     echo '        rm server.zip' >> ~/servers/minecraft/setup
     echo '        echo "LD_LIBRARY_PATH=. ./bedrock_server" >> bedrock-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x bedrock-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/bedrock-$ver/start -S bedrock-$ver" >> bedrock-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS bedrock-$ver ~/servers/minecraft/bedrock-$ver/start" >> bedrock-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x bedrock-$ver/screen' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -122,7 +122,7 @@ case $1 in
     echo '        cd ..' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx10G -jar server.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS forge-$ver ~/servers/minecraft/forge-$ver/start" >> forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -140,7 +140,7 @@ case $1 in
     echo '        cd ..' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx12G -jar server.jar" >> sponge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/sponge-$ver/start -S sponge-$ver" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS sponge-$ver ~/servers/minecraft/sponge-$ver/start" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -174,6 +174,7 @@ case $1 in
     echo '        echo "./setup p 1.15.2 coolserv u"' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
+
 
 
 
@@ -355,7 +356,7 @@ case $1 in
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx4G -jar server.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/vanilla-$ver/start -S vanilla-$ver" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" >> vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> vanilla-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -366,7 +367,7 @@ case $1 in
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx8G -jar server.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/paper-$ver/start -S paper-$ver" >> paper-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" >> paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> paper-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -379,7 +380,7 @@ case $1 in
     echo '        rm server.zip' >> ~/servers/minecraft/setup
     echo '        echo "LD_LIBRARY_PATH=. ./bedrock_server" >> bedrock-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x bedrock-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/bedrock-$ver/start -S bedrock-$ver" >> bedrock-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS bedrock-$ver ~/servers/minecraft/bedrock-$ver/start" >> bedrock-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x bedrock-$ver/screen' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -394,7 +395,7 @@ case $1 in
     echo '        cd ..' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx10G -jar server.jar" >> forge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/forge-$ver/start -S forge-$ver" >> forge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS forge-$ver ~/servers/minecraft/forge-$ver/start" >> forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> forge-$ver/eula.txt' >> ~/servers/minecraft/setup
@@ -412,7 +413,7 @@ case $1 in
     echo '        cd ..' >> ~/servers/minecraft/setup
     echo '        echo "java -Xmx12G -jar server.jar" >> sponge-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "sudo screen ~/servers/minecraft/sponge-$ver/start -S sponge-$ver" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
+    echo '        echo "sudo screen -dmS sponge-$ver ~/servers/minecraft/sponge-$ver/start" >> sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x sponge-$ver/screen' >> ~/servers/minecraft/setup
     echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
     echo '        echo "eula=true" >> sponge-$ver/eula.txt' >> ~/servers/minecraft/setup

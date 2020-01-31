@@ -19,5 +19,5 @@ It is recommended to do that in your `~/` directory
 - [x] eventually add sponge and bedrock support for mc . . . eventually . . .
 - [x] *learn README.md formatting*
 - [x] Add a way to update minecraft servers (paper, forge, sponge)
-- [ ] Add a way to update the scripts (steam needs to be corrected)
+- [x] Add a way to update the scripts (steam needs to be corrected)
 - [ ] Add a way to update minecraft servers 2 (vanilla auto-move)(this one might not happen because I am lazy)

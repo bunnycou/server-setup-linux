@@ -197,10 +197,20 @@ case $1 in
     mkdir ~/servers/steam/steamcmd
     sudo ln -s /usr/games/steamcmd ~/servers/steam/steamcmd/steamcmd
 
+    if [ -f ~/servers/steam/disableipv6 ]
+    then
+        rm ~/servers/steam/disableipv6
+    fi
+
     echo '#!/bin/sh' >> ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1' >> ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1' >> ~/servers/steam/disableipv6
     chmod +x ~/servers/steam/disableipv6
+
+    if [ -f ~/servers/steam/enableipv6 ]
+    then
+        rm ~/servers/steam/enableipv6
+    fi
 
     echo '#!/bin/sh' >> ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' >> ~/servers/steam/enableipv6
@@ -480,10 +490,20 @@ case $1 in
     mkdir ~/servers/steam/steamcmd
     sudo ln -s /usr/games/steamcmd ~/servers/steam/steamcmd/steamcmd
 
+    if [ -f ~/servers/steam/disableipv6 ]
+    then
+        rm ~/servers/steam/disableipv6
+    fi
+
     echo '#!/bin/sh' >> ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1' >> ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1' >> ~/servers/steam/disableipv6
     chmod +x ~/servers/steam/disableipv6
+
+    if [ -f ~/servers/steam/enableipv6 ]
+    then
+        rm ~/servers/steam/enableipv6
+    fi
 
     echo '#!/bin/sh' >> ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' >> ~/servers/steam/enableipv6

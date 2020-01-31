@@ -255,7 +255,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen -dmS $2 ~/servers/steam/$2/start" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        else' >> ~/servers/steam/setup
@@ -273,13 +273,14 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen -dmS $2 ~/servers/steam/$2/start" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        fi' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '    ;;' >> ~/servers/steam/setup
     echo 'esac' >> ~/servers/steam/setup
+
 
 
 
@@ -537,7 +538,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen -dmS $2 ~/servers/steam/$2/start" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        else' >> ~/servers/steam/setup
@@ -555,7 +556,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
     echo '            echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"' >> ~/servers/steam/setup
-    echo '            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen' >> ~/servers/steam/setup
+    echo '            echo "sudo screen -dmS $2 ~/servers/steam/$2/start" >> screen' >> ~/servers/steam/setup
     echo '            chmod +x screen' >> ~/servers/steam/setup
     echo '            cd ..' >> ~/servers/steam/setup
     echo '        fi' >> ~/servers/steam/setup

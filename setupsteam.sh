@@ -40,7 +40,7 @@ case $1 in
 
             echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"
             echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"
-            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen
+            echo "sudo screen -dmS $2 ~/servers/steam/$2/start" >> screen
             chmod +x screen
             cd ..
         else
@@ -58,7 +58,7 @@ case $1 in
 
             echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"
             echo "I personally use a start bash script that is then executed by the screen bash script for convenience!"
-            echo "sudo screen ~/servers/steam/$2/APP -S $2" >> screen
+            echo "sudo screen -dmS $2 ~/servers/steam/$2/start" >> screen
             chmod +x screen
             cd ..
         fi

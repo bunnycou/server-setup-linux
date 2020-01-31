@@ -30,12 +30,12 @@ case $1 in
             mkdir $2
             cd $2
             echo "sudo ~/servers/steam/disableipv6" >> update
-            echo "steamcmd +login $3 +app_update $1 validate +quit" >> update
+            echo "steamcmd +login $3 +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit" >> update
             echo "sudo ~/servers/steam/enableipv6" >> update
             chmod +x update
             echo "Downloading and installing $2"
             ~/servers/steam/disableipv6
-            steamcmd +login $3 +app_update $1 validate +quit
+            steamcmd +login $3 +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit
             ~/servers/steam/enableipv6
 
             echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"
@@ -48,12 +48,12 @@ case $1 in
             mkdir $2
             cd $2
             echo "sudo ~/servers/steam/disableipv6" >> update
-            echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update
+            echo "steamcmd +login anonymous +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit" >> update
             echo "sudo ~/servers/steam/enableipv6" >> update
             chmod +x update
             echo "Downloading and installing $2"
             ~/servers/steam/disableipv6
-            steamcmd +login anonymous +app_update $1 validate +quit
+            steamcmd +login anonymous +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit
             ~/servers/steam/enableipv6
 
             echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"

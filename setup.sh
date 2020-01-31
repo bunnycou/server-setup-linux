@@ -245,12 +245,12 @@ case $1 in
     echo '            mkdir $2' >> ~/servers/steam/setup
     echo '            cd $2' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/disableipv6" >> update' >> ~/servers/steam/setup
-    echo '            echo "steamcmd +login $3 +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
+    echo '            echo "steamcmd +login $3 +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/enableipv6" >> update' >> ~/servers/steam/setup
     echo '            chmod +x update' >> ~/servers/steam/setup
     echo '            echo "Downloading and installing $2"' >> ~/servers/steam/setup
     echo '            ~/servers/steam/disableipv6' >> ~/servers/steam/setup
-    echo '            steamcmd +login $3 +app_update $1 validate +quit' >> ~/servers/steam/setup
+    echo '            steamcmd +login $3 +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit' >> ~/servers/steam/setup
     echo '            ~/servers/steam/enableipv6' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
@@ -263,12 +263,12 @@ case $1 in
     echo '            mkdir $2' >> ~/servers/steam/setup
     echo '            cd $2' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/disableipv6" >> update' >> ~/servers/steam/setup
-    echo '            echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
+    echo '            echo "steamcmd +login anonymous +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/enableipv6" >> update' >> ~/servers/steam/setup
     echo '            chmod +x update' >> ~/servers/steam/setup
     echo '            echo "Downloading and installing $2"' >> ~/servers/steam/setup
     echo '            ~/servers/steam/disableipv6' >> ~/servers/steam/setup
-    echo '            steamcmd +login anonymous +app_update $1 validate +quit' >> ~/servers/steam/setup
+    echo '            steamcmd +login anonymous +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit' >> ~/servers/steam/setup
     echo '            ~/servers/steam/enableipv6' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
@@ -280,6 +280,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '    ;;' >> ~/servers/steam/setup
     echo 'esac' >> ~/servers/steam/setup
+
 
 
 
@@ -526,12 +527,12 @@ case $1 in
     echo '            mkdir $2' >> ~/servers/steam/setup
     echo '            cd $2' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/disableipv6" >> update' >> ~/servers/steam/setup
-    echo '            echo "steamcmd +login $3 +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
+    echo '            echo "steamcmd +login $3 +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/enableipv6" >> update' >> ~/servers/steam/setup
     echo '            chmod +x update' >> ~/servers/steam/setup
     echo '            echo "Downloading and installing $2"' >> ~/servers/steam/setup
     echo '            ~/servers/steam/disableipv6' >> ~/servers/steam/setup
-    echo '            steamcmd +login $3 +app_update $1 validate +quit' >> ~/servers/steam/setup
+    echo '            steamcmd +login $3 +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit' >> ~/servers/steam/setup
     echo '            ~/servers/steam/enableipv6' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup
@@ -544,12 +545,12 @@ case $1 in
     echo '            mkdir $2' >> ~/servers/steam/setup
     echo '            cd $2' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/disableipv6" >> update' >> ~/servers/steam/setup
-    echo '            echo "steamcmd +login anonymous +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
+    echo '            echo "steamcmd +login anonymous +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit" >> update' >> ~/servers/steam/setup
     echo '            echo "sudo ~/servers/steam/enableipv6" >> update' >> ~/servers/steam/setup
     echo '            chmod +x update' >> ~/servers/steam/setup
     echo '            echo "Downloading and installing $2"' >> ~/servers/steam/setup
     echo '            ~/servers/steam/disableipv6' >> ~/servers/steam/setup
-    echo '            steamcmd +login anonymous +app_update $1 validate +quit' >> ~/servers/steam/setup
+    echo '            steamcmd +login anonymous +force_install_dir ~/servers/steam/$2 +app_update $1 validate +quit' >> ~/servers/steam/setup
     echo '            ~/servers/steam/enableipv6' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '            echo "Due to the complexity of steam servers a screen bash script will be created for you but you will be required to configure the APP yourself"' >> ~/servers/steam/setup

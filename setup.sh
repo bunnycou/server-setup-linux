@@ -185,7 +185,7 @@ case $1 in
     sudo add-apt-repository multiverse
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install lib32gcc1 steamcmd
+    sudo apt-get install lib32gcc1 lib32tinfo5 steamcmd
 
     echo "Creating Folders and Scripts . . ."
     # createsteam
@@ -299,7 +299,7 @@ case $1 in
     sudo add-apt-repository multiverse
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install lib32gcc1 steamcmd
+    sudo apt-get install lib32gcc1 lib32tinfo5 steamcmd
 
     echo "Creating Folders and Scripts for MC . . ."
     # createmc

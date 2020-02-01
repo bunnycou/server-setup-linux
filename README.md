@@ -1,5 +1,5 @@
 # Linux Server Setup for Minecraft and Steam
-This is just the project repository for server-setup-lin. DO NOT DOWNLOAD THIS FOR YOUR SERVER
+This is just the project repository for server-setup-lin. DO NOT CLONE THIS REPO FOR YOUR SERVER
 
 To obtain the setup.sh on your server do: 
 

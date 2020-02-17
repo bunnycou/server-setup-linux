@@ -14,5 +14,6 @@ It is recommended to do that in your `~/` directory
 **Thank you cear for the echoscript.exe!**
 
 ### TODO - 2020/1/26
-- [ ] Fix sudo security issues
+- [x] Fix sudo security issues
+- [ ] Maybe add chown for fixing file ownership issues that may occur
 - [ ] Add a way to update minecraft servers 2 (vanilla auto-move)(this one might not happen because I am lazy)

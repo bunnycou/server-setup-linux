@@ -14,10 +14,5 @@ It is recommended to do that in your `~/` directory
 **Thank you cear for the echoscript.exe!**
 
 ### TODO - 2020/1/26
-- [x] Auto accept EULA and add clause to README.md
-- [x] Finish setupsteam.sh to stop the user from using bad arguments
-- [x] eventually add sponge and bedrock support for mc . . . eventually . . .
-- [x] *learn README.md formatting*
-- [x] Add a way to update minecraft servers (paper, forge, sponge)
-- [x] Add a way to update the scripts (steam needs to be corrected)
+- [ ] Fix sudo security issues
 - [ ] Add a way to update minecraft servers 2 (vanilla auto-move)(this one might not happen because I am lazy)

@@ -12,13 +12,8 @@ case $1 in
     mkdir ~/servers/
     mkdir ~/servers/minecraft
 
-    if [ -f ~/servers/minecraft/setup ]
-    then
-        rm ~/servers/minecraft/setup
-    fi
-
     # code from setupmc.sh echoed into a script
-    echo '#!/bin/sh' >> ~/servers/minecraft/setup
+    echo '#!/bin/sh' > ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -194,33 +189,18 @@ case $1 in
     mkdir ~/servers/steam/steamcmd
     sudo ln -s /usr/games/steamcmd ~/servers/steam/steamcmd/steamcmd
 
-    if [ -f ~/servers/steam/disableipv6 ]
-    then
-        rm ~/servers/steam/disableipv6
-    fi
-
-    echo '#!/bin/sh' >> ~/servers/steam/disableipv6
+    echo '#!/bin/sh' > ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1' >> ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1' >> ~/servers/steam/disableipv6
     chmod +x ~/servers/steam/disableipv6
 
-    if [ -f ~/servers/steam/enableipv6 ]
-    then
-        rm ~/servers/steam/enableipv6
-    fi
-
-    echo '#!/bin/sh' >> ~/servers/steam/enableipv6
+    echo '#!/bin/sh' > ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' >> ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0' >> ~/servers/steam/enableipv6
     chmod +x ~/servers/steam/enableipv6
 
-    if [ -f ~/servers/steam/setup ]
-    then
-        rm ~/servers/steam/setup
-    fi
-
     # code from setupsteam.sh echoed into a script
-    echo '#!/bin/sh' >> ~/servers/steam/setup
+    echo '#!/bin/sh' > ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
@@ -306,13 +286,8 @@ case $1 in
     mkdir ~/servers/
     mkdir ~/servers/minecraft
 
-    if [ -f ~/servers/minecraft/setup ]
-    then
-        rm ~/servers/minecraft/setup
-    fi
-
     # code from setupmc.sh echoed into a script
-    echo '#!/bin/sh' >> ~/servers/minecraft/setup
+    echo '#!/bin/sh' > ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -479,33 +454,18 @@ case $1 in
     mkdir ~/servers/steam/steamcmd
     sudo ln -s /usr/games/steamcmd ~/servers/steam/steamcmd/steamcmd
 
-    if [ -f ~/servers/steam/disableipv6 ]
-    then
-        rm ~/servers/steam/disableipv6
-    fi
-
-    echo '#!/bin/sh' >> ~/servers/steam/disableipv6
+    echo '#!/bin/sh' > ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1' >> ~/servers/steam/disableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1' >> ~/servers/steam/disableipv6
     chmod +x ~/servers/steam/disableipv6
 
-    if [ -f ~/servers/steam/enableipv6 ]
-    then
-        rm ~/servers/steam/enableipv6
-    fi
-
-    echo '#!/bin/sh' >> ~/servers/steam/enableipv6
+    echo '#!/bin/sh' > ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' >> ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0' >> ~/servers/steam/enableipv6
     chmod +x ~/servers/steam/enableipv6
 
-    if [ -f ~/servers/steam/setup ]
-    then
-        rm ~/servers/steam/setup
-    fi
-
     # code from setupsteam.sh echoed into a script
-    echo '#!/bin/sh' >> ~/servers/steam/setup
+    echo '#!/bin/sh' > ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup
     echo '' >> ~/servers/steam/setup

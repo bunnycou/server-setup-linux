@@ -13,7 +13,7 @@ case $1 in
     mkdir ~/servers/minecraft
 
     # code from setupmc.sh echoed into a script
-    echo '#!/bin/sh' >> ~/servers/minecraft/setup
+    echo '#!/bin/sh' > ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -185,6 +185,9 @@ case $1 in
     echo 'esac' >> ~/servers/minecraft/setup
 
 
+
+
+
     chmod +x ~/servers/minecraft/setup
 
     ;;
@@ -302,7 +305,7 @@ case $1 in
     mkdir ~/servers/minecraft
 
     # code from setupmc.sh echoed into a script
-    echo '#!/bin/sh' >> ~/servers/minecraft/setup
+    echo '#!/bin/sh' > ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -557,6 +560,7 @@ case $1 in
     echo '' >> ~/servers/steam/setup
     echo '    ;;' >> ~/servers/steam/setup
     echo 'esac' >> ~/servers/steam/setup
+
 
     chmod +x ~/servers/steam/setup
 

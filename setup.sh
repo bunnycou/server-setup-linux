@@ -102,7 +102,7 @@ case $1 in
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '    waterfall|w)' >> ~/servers/minecraft/setup
-    echo '        mkdirr waterfall-$ver' >> ~/servers/minecraft/setup
+    echo '        mkdir waterfall-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
     echo '        echo "java -jar waterfall.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
@@ -397,7 +397,7 @@ case $1 in
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '    waterfall|w)' >> ~/servers/minecraft/setup
-    echo '        mkdirr waterfall-$ver' >> ~/servers/minecraft/setup
+    echo '        mkdir waterfall-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
     echo '        echo "java -jar waterfall.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup

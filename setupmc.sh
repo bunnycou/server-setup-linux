@@ -87,7 +87,7 @@ case $1 in
     ;;
 
     waterfall|w)
-        mkdirr waterfall-$ver
+        mkdir waterfall-$ver
         curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall.jar
         echo "java -jar waterfall.jar" > waterfall-$ver/start
         chmod +x waterfall-$ver/start

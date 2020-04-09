@@ -17,6 +17,11 @@ then
             curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar
         ;;
 
+        waterfall|w)
+            echo "updating Waterfall!"
+            rm waterfall-$ver/server.jar
+            curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar
+
         bedrock|b)
             echo "Bedrock does not require updates through this method, please use the normal method to download the new server"
             echo "Then simply copy the old world folder and server.properties over before starting up the new server"
@@ -61,33 +66,41 @@ case $1 in
     vanilla|v)
         mkdir vanilla-$ver
         curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar
-        echo "java -Xmx4G -jar server.jar" >> vanilla-$ver/start
+        echo "java -Xmx4G -jar server.jar" > vanilla-$ver/start
         chmod +x vanilla-$ver/start
-        echo "screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" >> vanilla-$ver/screen
+        echo "screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" > vanilla-$ver/screen
         chmod +x vanilla-$ver/screen
-        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> vanilla-$ver/eula.txt
-        echo "eula=true" >> vanilla-$ver/eula.txt
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > vanilla-$ver/eula.txt
+        echo "eula=true" > vanilla-$ver/eula.txt
     ;;
 
     paper|p)
         mkdir paper-$ver
         curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar
-        echo "java -Xmx8G -jar server.jar" >> paper-$ver/start
+        echo "java -Xmx8G -jar server.jar" > paper-$ver/start
         chmod +x paper-$ver/start
-        echo "screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" >> paper-$ver/screen
+        echo "screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" > paper-$ver/screen
         chmod +x paper-$ver/screen
-        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> paper-$ver/eula.txt
-        echo "eula=true" >> paper-$ver/eula.txt
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > paper-$ver/eula.txt
+        echo "eula=true" > paper-$ver/eula.txt
     ;;
+
+    waterfall|w)
+        mkdirr waterfall-$ver
+        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall.jar
+        echo "java -jar waterfall.jar" > waterfall-$ver/start
+        chmod +x waterfall-$ver/start
+        echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen
+        chmod +x waterfall-$ver/screen
 
     bedrock|b)
         mkdir /bedrock-$ver
         curl https://noahcou.github.io/fishcurl/bedrock/$2/server.zip -o bedrock-server.zip
         unzip server.zip -d bedrock-$ver/
         rm server.zip
-        echo "LD_LIBRARY_PATH=. ./bedrock_server" >> bedrock-$ver/start
+        echo "LD_LIBRARY_PATH=. ./bedrock_server" > bedrock-$ver/start
         chmod +x bedrock-$ver/start
-        echo "screen -dmS bedrock-$ver ~/servers/minecraft/bedrock-$ver/start" >> bedrock-$ver/screen
+        echo "screen -dmS bedrock-$ver ~/servers/minecraft/bedrock-$ver/start" > bedrock-$ver/screen
         chmod +x bedrock-$ver/screen
     ;;
 
@@ -100,12 +113,12 @@ case $1 in
         rm installer.jar.log
         mv forge-*.jar server.jar
         cd ..
-        echo "java -Xmx10G -jar server.jar" >> forge-$ver/start
+        echo "java -Xmx10G -jar server.jar" > forge-$ver/start
         chmod +x forge-$ver/start
-        echo "screen -dmS forge-$ver ~/servers/minecraft/forge-$ver/start" >> forge-$ver/screen
+        echo "screen -dmS forge-$ver ~/servers/minecraft/forge-$ver/start" > forge-$ver/screen
         chmod +x forge-$ver/screen
-        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> forge-$ver/eula.txt
-        echo "eula=true" >> forge-$ver/eula.txt
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > forge-$ver/eula.txt
+        echo "eula=true" > forge-$ver/eula.txt
     ;;
 
     sponge|s)
@@ -118,12 +131,12 @@ case $1 in
         rm installer.jar.log
         mv forge-*.jar server.jar
         cd ..
-        echo "java -Xmx12G -jar server.jar" >> sponge-$ver/start
+        echo "java -Xmx12G -jar server.jar" > sponge-$ver/start
         chmod +x sponge-$ver/start
-        echo "screen -dmS sponge-$ver ~/servers/minecraft/sponge-$ver/start" >> sponge-$ver/screen
+        echo "screen -dmS sponge-$ver ~/servers/minecraft/sponge-$ver/start" > sponge-$ver/screen
         chmod +x sponge-$ver/screen
-        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" >> sponge-$ver/eula.txt
-        echo "eula=true" >> sponge-$ver/eula.txt
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > sponge-$ver/eula.txt
+        echo "eula=true" > sponge-$ver/eula.txt
         curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar
     ;;
 
@@ -136,6 +149,7 @@ case $1 in
         echo " - First Argument - (one letter also works!)"
         echo "vanilla - install a vanilla server (pulls from my own files)"
         echo "paper - install a paper plugin server"
+        echo "waterfall - install a waterfall server - versioning is 1.15 not 1.15.2!"
         echo "bedrock - install a bedrock server (pulls from my own files)"
         echo "forge - install a standard modded minecraft server (pulls from my own files)"
         echo "sponge - install a modded plugin compatible server (in testing)"

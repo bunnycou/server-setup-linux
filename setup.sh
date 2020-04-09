@@ -36,6 +36,7 @@ case $1 in
     echo '            echo "updating Waterfall!"' >> ~/servers/minecraft/setup
     echo '            rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
     echo '            curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
+    echo '        ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '        bedrock|b)' >> ~/servers/minecraft/setup
     echo '            echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
@@ -107,6 +108,7 @@ case $1 in
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/screen' >> ~/servers/minecraft/setup
+    echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '    bedrock|b)' >> ~/servers/minecraft/setup
     echo '        mkdir /bedrock-$ver' >> ~/servers/minecraft/setup
@@ -183,6 +185,7 @@ case $1 in
     echo '        echo "./setup p 1.15.2 coolserv u"' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
+
 
 
 
@@ -328,6 +331,7 @@ case $1 in
     echo '            echo "updating Waterfall!"' >> ~/servers/minecraft/setup
     echo '            rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
     echo '            curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
+    echo '        ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '        bedrock|b)' >> ~/servers/minecraft/setup
     echo '            echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
@@ -399,6 +403,7 @@ case $1 in
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/screen' >> ~/servers/minecraft/setup
+    echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '    bedrock|b)' >> ~/servers/minecraft/setup
     echo '        mkdir /bedrock-$ver' >> ~/servers/minecraft/setup

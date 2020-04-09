@@ -21,6 +21,7 @@ then
             echo "updating Waterfall!"
             rm waterfall-$ver/server.jar
             curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar
+        ;;
 
         bedrock|b)
             echo "Bedrock does not require updates through this method, please use the normal method to download the new server"
@@ -92,6 +93,7 @@ case $1 in
         chmod +x waterfall-$ver/start
         echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen
         chmod +x waterfall-$ver/screen
+    ;;
 
     bedrock|b)
         mkdir /bedrock-$ver

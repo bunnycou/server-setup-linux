@@ -17,7 +17,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'if [ $4 == "u" ]' >> ~/servers/minecraft/setup
+    echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
     echo '    ver=$3' >> ~/servers/minecraft/setup
     echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
@@ -312,7 +312,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'if [ $4 == "u" ]' >> ~/servers/minecraft/setup
+    echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
     echo '    ver=$3' >> ~/servers/minecraft/setup
     echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup

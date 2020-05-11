@@ -2,7 +2,7 @@
 
 ver=""
 
-if [ $4 == "u" ]
+if [ $4 = "u" ]
 then
     ver=$3
     case $1 in # 'exit 130' to exit

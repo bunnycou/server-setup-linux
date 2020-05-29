@@ -17,60 +17,63 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
+    echo 'if [ $# = 4 ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
-    echo '    ver=$3' >> ~/servers/minecraft/setup
-    echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
-    echo '        vanilla|v)' >> ~/servers/minecraft/setup
-    echo '            echo "Vanilla does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
-    echo '            echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '    if [ $4 = "u" ]' >> ~/servers/minecraft/setup
+    echo '    then' >> ~/servers/minecraft/setup
+    echo '        ver=$3' >> ~/servers/minecraft/setup
+    echo '        case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
+    echo '            vanilla|v)' >> ~/servers/minecraft/setup
+    echo '                echo "Vanilla does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
+    echo '                echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        paper|p)' >> ~/servers/minecraft/setup
-    echo '            echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            paper|p)' >> ~/servers/minecraft/setup
+    echo '                echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
+    echo '                rm paper-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        waterfall|w)' >> ~/servers/minecraft/setup
-    echo '            echo "updating Waterfall!"' >> ~/servers/minecraft/setup
-    echo '            rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            waterfall|w)' >> ~/servers/minecraft/setup
+    echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
+    echo '                rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        bedrock|b)' >> ~/servers/minecraft/setup
-    echo '            echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
-    echo '            echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
-    echo '            echo "(More may be required, I do not use bedrock that often)"' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            bedrock|b)' >> ~/servers/minecraft/setup
+    echo '                echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
+    echo '                echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
+    echo '                echo "(More may be required, I do not use bedrock that often)"' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        forge|f)' >> ~/servers/minecraft/setup
-    echo '            echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '            cd forge-$ver' >> ~/servers/minecraft/setup
-    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '            cd ..' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            forge|f)' >> ~/servers/minecraft/setup
+    echo '                echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
+    echo '                rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '                cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '                cd ..' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        sponge|s)' >> ~/servers/minecraft/setup
-    echo '            echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '            cd sponge-$ver' >> ~/servers/minecraft/setup
-    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '            cd ..' >> ~/servers/minecraft/setup
-    echo '            rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
-    echo '    esac' >> ~/servers/minecraft/setup
-    echo '    exit 130' >> ~/servers/minecraft/setup
+    echo '            sponge|s)' >> ~/servers/minecraft/setup
+    echo '                echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
+    echo '                rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '                cd sponge-$ver' >> ~/servers/minecraft/setup
+    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '                cd ..' >> ~/servers/minecraft/setup
+    echo '                rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
+    echo '        esac' >> ~/servers/minecraft/setup
+    echo '        exit 130' >> ~/servers/minecraft/setup
+    echo '    fi' >> ~/servers/minecraft/setup
     echo 'elif [ $# = 3 ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
     echo '    ver=$3' >> ~/servers/minecraft/setup
@@ -185,11 +188,6 @@ case $1 in
     echo '        echo "./setup p 1.15.2 coolserv u"' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
-
-
-
-
-
 
     chmod +x ~/servers/minecraft/setup
 
@@ -312,60 +310,63 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo 'ver=""' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo 'if [ $4 = "u" ]' >> ~/servers/minecraft/setup
+    echo 'if [ $# = 4 ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
-    echo '    ver=$3' >> ~/servers/minecraft/setup
-    echo '    case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
-    echo '        vanilla|v)' >> ~/servers/minecraft/setup
-    echo '            echo "Vanilla does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
-    echo '            echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '    if [ $4 = "u" ]' >> ~/servers/minecraft/setup
+    echo '    then' >> ~/servers/minecraft/setup
+    echo '        ver=$3' >> ~/servers/minecraft/setup
+    echo '        case $1 in # 'exit 130' to exit' >> ~/servers/minecraft/setup
+    echo '            vanilla|v)' >> ~/servers/minecraft/setup
+    echo '                echo "Vanilla does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
+    echo '                echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        paper|p)' >> ~/servers/minecraft/setup
-    echo '            echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            paper|p)' >> ~/servers/minecraft/setup
+    echo '                echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
+    echo '                rm paper-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        waterfall|w)' >> ~/servers/minecraft/setup
-    echo '            echo "updating Waterfall!"' >> ~/servers/minecraft/setup
-    echo '            rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            waterfall|w)' >> ~/servers/minecraft/setup
+    echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
+    echo '                rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        bedrock|b)' >> ~/servers/minecraft/setup
-    echo '            echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
-    echo '            echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
-    echo '            echo "(More may be required, I do not use bedrock that often)"' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            bedrock|b)' >> ~/servers/minecraft/setup
+    echo '                echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
+    echo '                echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
+    echo '                echo "(More may be required, I do not use bedrock that often)"' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        forge|f)' >> ~/servers/minecraft/setup
-    echo '            echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '            cd forge-$ver' >> ~/servers/minecraft/setup
-    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '            cd ..' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
+    echo '            forge|f)' >> ~/servers/minecraft/setup
+    echo '                echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
+    echo '                rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '                cd forge-$ver' >> ~/servers/minecraft/setup
+    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '                cd ..' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '        sponge|s)' >> ~/servers/minecraft/setup
-    echo '            echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '            rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '            cd sponge-$ver' >> ~/servers/minecraft/setup
-    echo '            java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar' >> ~/servers/minecraft/setup
-    echo '            rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '            mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '            cd ..' >> ~/servers/minecraft/setup
-    echo '            rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '        ;;' >> ~/servers/minecraft/setup
-    echo '    esac' >> ~/servers/minecraft/setup
-    echo '    exit 130' >> ~/servers/minecraft/setup
+    echo '            sponge|s)' >> ~/servers/minecraft/setup
+    echo '                echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
+    echo '                rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
+    echo '                cd sponge-$ver' >> ~/servers/minecraft/setup
+    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar' >> ~/servers/minecraft/setup
+    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
+    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
+    echo '                cd ..' >> ~/servers/minecraft/setup
+    echo '                rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
+    echo '            ;;' >> ~/servers/minecraft/setup
+    echo '        esac' >> ~/servers/minecraft/setup
+    echo '        exit 130' >> ~/servers/minecraft/setup
+    echo '    fi' >> ~/servers/minecraft/setup
     echo 'elif [ $# = 3 ]' >> ~/servers/minecraft/setup
     echo 'then' >> ~/servers/minecraft/setup
     echo '    ver=$3' >> ~/servers/minecraft/setup

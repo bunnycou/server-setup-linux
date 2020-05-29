@@ -2,60 +2,63 @@
 
 ver=""
 
-if [ $4 = "u" ]
+if [ $# = 4 ]
 then
-    ver=$3
-    case $1 in # 'exit 130' to exit
-        vanilla|v)
-            echo "Vanilla does not require updates through this method, please use the normal method to download the new server"
-            echo "Then simply copy the old world folder and server.properties over before starting up the new server"
-        ;;
+    if [ $4 = "u" ]
+    then
+        ver=$3
+        case $1 in # 'exit 130' to exit
+            vanilla|v)
+                echo "Vanilla does not require updates through this method, please use the normal method to download the new server"
+                echo "Then simply copy the old world folder and server.properties over before starting up the new server"
+            ;;
 
-        paper|p)
-            echo "Updating Paper-$ver . . ."
-            rm paper-$ver/server.jar
-            curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar
-        ;;
+            paper|p)
+                echo "Updating Paper-$ver . . ."
+                rm paper-$ver/server.jar
+                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar
+            ;;
 
-        waterfall|w)
-            echo "updating Waterfall!"
-            rm waterfall-$ver/server.jar
-            curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar
-        ;;
+            waterfall|w)
+                echo "updating Waterfall!"
+                rm waterfall-$ver/server.jar
+                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar
+            ;;
 
-        bedrock|b)
-            echo "Bedrock does not require updates through this method, please use the normal method to download the new server"
-            echo "Then simply copy the old world folder and server.properties over before starting up the new server"
-            echo "(More may be required, I do not use bedrock that often)"
-        ;;
+            bedrock|b)
+                echo "Bedrock does not require updates through this method, please use the normal method to download the new server"
+                echo "Then simply copy the old world folder and server.properties over before starting up the new server"
+                echo "(More may be required, I do not use bedrock that often)"
+            ;;
 
-        forge|f)
-            echo "Updating Forge-$ver . . ."
-            rm forge-$ver/server.jar
-            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar
-            cd forge-$ver
-            java -jar installer.jar --installServer
-            rm installer.jar
-            rm installer.jar.log
-            mv forge-*.jar server.jar
-            cd ..
-        ;;
+            forge|f)
+                echo "Updating Forge-$ver . . ."
+                rm forge-$ver/server.jar
+                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar
+                cd forge-$ver
+                java -jar installer.jar --installServer
+                rm installer.jar
+                rm installer.jar.log
+                mv forge-*.jar server.jar
+                cd ..
+            ;;
 
-        sponge|s)
-            echo "Updating Sponge-$ver . . ."
-            rm sponge-$ver/server.jar
-            curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar
-            cd sponge-$ver
-            java -jar installer.jar --installServer
-            rm installer.jar
-            rm installer.jar.log
-            mv forge-*.jar server.jar
-            cd ..
-            rm sponge-$ver/mods/sponge.jar
-            curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar
-        ;;
-    esac
-    exit 130
+            sponge|s)
+                echo "Updating Sponge-$ver . . ."
+                rm sponge-$ver/server.jar
+                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar
+                cd sponge-$ver
+                java -jar installer.jar --installServer
+                rm installer.jar
+                rm installer.jar.log
+                mv forge-*.jar server.jar
+                cd ..
+                rm sponge-$ver/mods/sponge.jar
+                curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar
+            ;;
+        esac
+        exit 130
+    fi
 elif [ $# = 3 ]
 then
     ver=$3

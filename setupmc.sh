@@ -21,7 +21,7 @@ then
 
             waterfall|w)
                 echo "updating Waterfall!"
-                rm waterfall-$ver/server.jar
+                rm waterfall-$ver/waterfall.jar
                 curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar
             ;;
 

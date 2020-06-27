@@ -36,7 +36,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '            waterfall|w)' >> ~/servers/minecraft/setup
     echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
-    echo '                rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                rm waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
     echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
@@ -189,6 +189,7 @@ case $1 in
     echo '    ;;' >> ~/servers/minecraft/setup
     echo 'esac' >> ~/servers/minecraft/setup
 
+
     chmod +x ~/servers/minecraft/setup
 
     ;;
@@ -329,7 +330,7 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '            waterfall|w)' >> ~/servers/minecraft/setup
     echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
-    echo '                rm waterfall-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                rm waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
     echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup

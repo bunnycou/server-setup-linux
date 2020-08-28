@@ -32,12 +32,24 @@ case $1 in
     echo '                echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
     echo '                rm paper-$ver/server-*.jar' >> ~/servers/minecraft/setup
     echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
+    echo '                echo "while true; do" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "echo Restarting in 15 seconds..." >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "sleep 15" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "done" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '            waterfall|w)' >> ~/servers/minecraft/setup
     echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
     echo '                rm waterfall-$ver/waterfall-*.jar' >> ~/servers/minecraft/setup
     echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
+    echo '                echo "while true; do" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "java -jar waterfall-$2.jar" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "echo Restarting in 15 seconds..." >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "sleep 15" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "done" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '        esac' >> ~/servers/minecraft/setup
     echo '        exit 130' >> ~/servers/minecraft/setup
@@ -53,7 +65,11 @@ case $1 in
     echo '    vanilla|v)' >> ~/servers/minecraft/setup
     echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server-$2.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx4G -jar server-$2.jar" > vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "while true; do" > vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx4G -jar server-$2.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "echo Restarting in 15 seconds..." >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "sleep 15" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "done" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" > vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
@@ -64,7 +80,11 @@ case $1 in
     echo '    paper|p)' >> ~/servers/minecraft/setup
     echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx8G -jar server-$2.jar" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "while true; do" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "echo Restarting in 15 seconds..." >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "sleep 15" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "done" >> paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" > paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
@@ -75,7 +95,11 @@ case $1 in
     echo '    waterfall|w)' >> ~/servers/minecraft/setup
     echo '        mkdir waterfall-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -jar waterfall-$2.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "while true; do" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -jar waterfall-$2.jar" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "echo Restarting in 15 seconds..." >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "sleep 15" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "done" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/screen' >> ~/servers/minecraft/setup
@@ -244,12 +268,24 @@ case $1 in
     echo '                echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
     echo '                rm paper-$ver/server-*.jar' >> ~/servers/minecraft/setup
     echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
+    echo '                echo "while true; do" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "echo Restarting in 15 seconds..." >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "sleep 15" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "done" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '                chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '            waterfall|w)' >> ~/servers/minecraft/setup
     echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
     echo '                rm waterfall-$ver/waterfall-*.jar' >> ~/servers/minecraft/setup
     echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
+    echo '                echo "while true; do" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "java -jar waterfall-$2.jar" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "echo Restarting in 15 seconds..." >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "sleep 15" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                echo "done" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '                chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '        esac' >> ~/servers/minecraft/setup
     echo '        exit 130' >> ~/servers/minecraft/setup
@@ -265,7 +301,11 @@ case $1 in
     echo '    vanilla|v)' >> ~/servers/minecraft/setup
     echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server-$2.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx4G -jar server-$2.jar" > vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "while true; do" > vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx4G -jar server-$2.jar" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "echo Restarting in 15 seconds..." >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "sleep 15" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "done" >> vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" > vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
@@ -276,7 +316,11 @@ case $1 in
     echo '    paper|p)' >> ~/servers/minecraft/setup
     echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx8G -jar server-$2.jar" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "while true; do" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "echo Restarting in 15 seconds..." >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "sleep 15" >> paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "done" >> paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" > paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
@@ -287,7 +331,11 @@ case $1 in
     echo '    waterfall|w)' >> ~/servers/minecraft/setup
     echo '        mkdir waterfall-$ver' >> ~/servers/minecraft/setup
     echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -jar waterfall-$2.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "while true; do" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "java -jar waterfall-$2.jar" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "echo Restarting in 15 seconds..." >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "sleep 15" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        echo "done" >> waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/screen' >> ~/servers/minecraft/setup

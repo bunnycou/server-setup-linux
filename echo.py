@@ -14,7 +14,7 @@ print("Writing . . .\n")
 if userin == "m":
     # delete existing text and create a new one
     if path.exists("mccreate.txt"): remove("mccreate.txt")
-    mcc = open("mccreate.txt", "w+")
+    mcc = open("mccreate.txt", "a")
 
     # write the lines
     mcl = ["echo '#!/bin/sh' > ~/servers/minecraft/setup\n"] 
@@ -51,7 +51,7 @@ elif userin == "b":
     for x in sts[1:]:
         stl.append(f"echo '{x[:-1]}' >> ~/servers/steam/setup\n")
     scc.writelines(stl)
-    
+
     print("Wrote both files!")
 
 else:

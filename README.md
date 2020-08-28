@@ -10,7 +10,7 @@ All you need is the setup.sh
 
 It is recommended to do that in your `~/` directory
 
-## BY USING MY SCRIPTS TO MAKE MINECRAFT SERVERS YOU AGREE TO THE [JAVA MINECRAFT EULA](https://account.mojang.com/documents/minecraft_eula), [BEDROCK MINECRAFT EULA](https://account.mojang.com/terms), AND [THE MICOSOFT PRIVACY POLIOCY](https://privacy.microsoft.com/en-US/privacystatement)
+## BY USING MY SCRIPTS TO MAKE MINECRAFT SERVERS YOU AGREE TO THE [JAVA MINECRAFT EULA](https://account.mojang.com/documents/minecraft_eula)
 
 ### TODO - 2020/1/26
 

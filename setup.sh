@@ -30,46 +30,14 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '            paper|p)' >> ~/servers/minecraft/setup
     echo '                echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '                rm paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                rm paper-$ver/server-*.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '            waterfall|w)' >> ~/servers/minecraft/setup
     echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
-    echo '                rm waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '            ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '            bedrock|b)' >> ~/servers/minecraft/setup
-    echo '                echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
-    echo '                echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
-    echo '                echo "(More may be required, I do not use bedrock that often)"' >> ~/servers/minecraft/setup
-    echo '            ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '            forge|f)' >> ~/servers/minecraft/setup
-    echo '                echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '                rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '                cd forge-$ver' >> ~/servers/minecraft/setup
-    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '                cd ..' >> ~/servers/minecraft/setup
-    echo '            ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '            sponge|s)' >> ~/servers/minecraft/setup
-    echo '                echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '                rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '                cd sponge-$ver' >> ~/servers/minecraft/setup
-    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '                cd ..' >> ~/servers/minecraft/setup
-    echo '                rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
+    echo '                rm waterfall-$ver/waterfall-*.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '        esac' >> ~/servers/minecraft/setup
     echo '        exit 130' >> ~/servers/minecraft/setup
@@ -84,8 +52,8 @@ case $1 in
     echo 'case $1 in' >> ~/servers/minecraft/setup
     echo '    vanilla|v)' >> ~/servers/minecraft/setup
     echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx4G -jar server.jar" > vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server-$2.jar' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx4G -jar server-$2.jar" > vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" > vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
@@ -95,8 +63,8 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '    paper|p)' >> ~/servers/minecraft/setup
     echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx8G -jar server.jar" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx8G -jar server-$2.jar" > paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" > paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
@@ -106,73 +74,23 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '    waterfall|w)' >> ~/servers/minecraft/setup
     echo '        mkdir waterfall-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -jar waterfall.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
+    echo '        echo "java -jar waterfall-$2.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '    bedrock|b)' >> ~/servers/minecraft/setup
-    echo '        mkdir /bedrock-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/bedrock/$2/server.zip -o bedrock-server.zip' >> ~/servers/minecraft/setup
-    echo '        unzip server.zip -d bedrock-$ver/' >> ~/servers/minecraft/setup
-    echo '        rm server.zip' >> ~/servers/minecraft/setup
-    echo '        echo "LD_LIBRARY_PATH=. ./bedrock_server" > bedrock-$ver/start' >> ~/servers/minecraft/setup
-    echo '        chmod +x bedrock-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "screen -dmS bedrock-$ver ~/servers/minecraft/bedrock-$ver/start" > bedrock-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        chmod +x bedrock-$ver/screen' >> ~/servers/minecraft/setup
-    echo '    ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '    forge|f)' >> ~/servers/minecraft/setup
-    echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
-    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '        cd ..' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx10G -jar server.jar" > forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "screen -dmS forge-$ver ~/servers/minecraft/forge-$ver/start" > forge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > forge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        echo "eula=true" > forge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '    ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '    sponge|s)' >> ~/servers/minecraft/setup
-    echo '        mkdir sponge-$ver' >> ~/servers/minecraft/setup
-    echo '        mkdir sponge-$ver/mods' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '        cd sponge-$ver' >> ~/servers/minecraft/setup
-    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '        cd ..' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx12G -jar server.jar" > sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        chmod +x sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "screen -dmS sponge-$ver ~/servers/minecraft/sponge-$ver/start" > sponge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        chmod +x sponge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        echo "eula=true" > sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '    ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
     echo '    *)' >> ~/servers/minecraft/setup
-    echo '        echo "To check available versions for v, b, f, s; See:"' >> ~/servers/minecraft/setup
+    echo '        echo "To check available versions for v; See:"' >> ~/servers/minecraft/setup
     echo '        echo "https://noahcou.github.io/fishcurl/ OR"' >> ~/servers/minecraft/setup
     echo '        echo "https://github.com/noahcou/fishcurl/"' >> ~/servers/minecraft/setup
-    echo '        echo "Typically I only like to add 1.14.4 and later as those are multithread compatible"' >> ~/servers/minecraft/setup
+    echo '        echo "Typically I only like to add 1.14.4 and later as those are multithread compatible I believe (maybe not)"' >> ~/servers/minecraft/setup
     echo '        echo "Here are the available options"' >> ~/servers/minecraft/setup
     echo '        echo " - First Argument - (one letter also works!)"' >> ~/servers/minecraft/setup
     echo '        echo "vanilla - install a vanilla server (pulls from my own files)"' >> ~/servers/minecraft/setup
     echo '        echo "paper - install a paper plugin server"' >> ~/servers/minecraft/setup
     echo '        echo "waterfall - install a waterfall server - versioning is 1.15 not 1.15.2!"' >> ~/servers/minecraft/setup
-    echo '        echo "bedrock - install a bedrock server (pulls from my own files)"' >> ~/servers/minecraft/setup
-    echo '        echo "forge - install a standard modded minecraft server (pulls from my own files)"' >> ~/servers/minecraft/setup
-    echo '        echo "sponge - install a modded plugin compatible server (in testing)"' >> ~/servers/minecraft/setup
     echo '        echo " - Second Argument - "' >> ~/servers/minecraft/setup
     echo '        echo "Put MC version here - 1.15.2 - Please use that standard format!"' >> ~/servers/minecraft/setup
     echo '        echo " - Third Argument - (OPTIONAL)"' >> ~/servers/minecraft/setup
@@ -324,46 +242,14 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '            paper|p)' >> ~/servers/minecraft/setup
     echo '                echo "Updating Paper-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '                rm paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
+    echo '                rm paper-$ver/server-*.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
     echo '            waterfall|w)' >> ~/servers/minecraft/setup
     echo '                echo "updating Waterfall!"' >> ~/servers/minecraft/setup
-    echo '                rm waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '            ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '            bedrock|b)' >> ~/servers/minecraft/setup
-    echo '                echo "Bedrock does not require updates through this method, please use the normal method to download the new server"' >> ~/servers/minecraft/setup
-    echo '                echo "Then simply copy the old world folder and server.properties over before starting up the new server"' >> ~/servers/minecraft/setup
-    echo '                echo "(More may be required, I do not use bedrock that often)"' >> ~/servers/minecraft/setup
-    echo '            ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '            forge|f)' >> ~/servers/minecraft/setup
-    echo '                echo "Updating Forge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '                rm forge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '                cd forge-$ver' >> ~/servers/minecraft/setup
-    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '                cd ..' >> ~/servers/minecraft/setup
-    echo '            ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '            sponge|s)' >> ~/servers/minecraft/setup
-    echo '                echo "Updating Sponge-$ver . . ."' >> ~/servers/minecraft/setup
-    echo '                rm sponge-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '                cd sponge-$ver' >> ~/servers/minecraft/setup
-    echo '                java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar' >> ~/servers/minecraft/setup
-    echo '                rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '                mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '                cd ..' >> ~/servers/minecraft/setup
-    echo '                rm sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '                curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
+    echo '                rm waterfall-$ver/waterfall-*.jar' >> ~/servers/minecraft/setup
+    echo '                curl https://papermc.io/api/v1/waterfall/$2/latest/download -0 waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
     echo '            ;;' >> ~/servers/minecraft/setup
     echo '        esac' >> ~/servers/minecraft/setup
     echo '        exit 130' >> ~/servers/minecraft/setup
@@ -378,8 +264,8 @@ case $1 in
     echo 'case $1 in' >> ~/servers/minecraft/setup
     echo '    vanilla|v)' >> ~/servers/minecraft/setup
     echo '        mkdir vanilla-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx4G -jar server.jar" > vanilla-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://noahcou.github.io/fishcurl/vanilla/$2/server.jar -o vanilla-$ver/server-$2.jar' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx4G -jar server-$2.jar" > vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS vanilla-$ver ~/servers/minecraft/vanilla-$ver/start" > vanilla-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x vanilla-$ver/screen' >> ~/servers/minecraft/setup
@@ -389,8 +275,8 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '    paper|p)' >> ~/servers/minecraft/setup
     echo '        mkdir paper-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx8G -jar server.jar" > paper-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://papermc.io/api/v1/paper/$2/latest/download -o paper-$ver/server-$2.jar' >> ~/servers/minecraft/setup
+    echo '        echo "java -Xmx8G -jar server-$2.jar" > paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" > paper-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x paper-$ver/screen' >> ~/servers/minecraft/setup
@@ -400,73 +286,23 @@ case $1 in
     echo '' >> ~/servers/minecraft/setup
     echo '    waterfall|w)' >> ~/servers/minecraft/setup
     echo '        mkdir waterfall-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall.jar' >> ~/servers/minecraft/setup
-    echo '        echo "java -jar waterfall.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
+    echo '        curl https://papermc.io/api/v1/waterfall/$2/latest/download -o waterfall-$ver/waterfall-$2.jar' >> ~/servers/minecraft/setup
+    echo '        echo "java -jar waterfall-$2.jar" > waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/start' >> ~/servers/minecraft/setup
     echo '        echo "screen -dmS waterfall-$ver ~/servers/minecraft/waterfall-$ver/start" > waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '        chmod +x waterfall-$ver/screen' >> ~/servers/minecraft/setup
     echo '    ;;' >> ~/servers/minecraft/setup
     echo '' >> ~/servers/minecraft/setup
-    echo '    bedrock|b)' >> ~/servers/minecraft/setup
-    echo '        mkdir /bedrock-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/bedrock/$2/server.zip -o bedrock-server.zip' >> ~/servers/minecraft/setup
-    echo '        unzip server.zip -d bedrock-$ver/' >> ~/servers/minecraft/setup
-    echo '        rm server.zip' >> ~/servers/minecraft/setup
-    echo '        echo "LD_LIBRARY_PATH=. ./bedrock_server" > bedrock-$ver/start' >> ~/servers/minecraft/setup
-    echo '        chmod +x bedrock-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "screen -dmS bedrock-$ver ~/servers/minecraft/bedrock-$ver/start" > bedrock-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        chmod +x bedrock-$ver/screen' >> ~/servers/minecraft/setup
-    echo '    ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '    forge|f)' >> ~/servers/minecraft/setup
-    echo '        mkdir forge-$ver' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o forge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '        cd forge-$ver' >> ~/servers/minecraft/setup
-    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '        cd ..' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx10G -jar server.jar" > forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        chmod +x forge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "screen -dmS forge-$ver ~/servers/minecraft/forge-$ver/start" > forge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        chmod +x forge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > forge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        echo "eula=true" > forge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '    ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
-    echo '    sponge|s)' >> ~/servers/minecraft/setup
-    echo '        mkdir sponge-$ver' >> ~/servers/minecraft/setup
-    echo '        mkdir sponge-$ver/mods' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/forge/$2/forge-installer.jar -o sponge-$ver/installer.jar' >> ~/servers/minecraft/setup
-    echo '        cd sponge-$ver' >> ~/servers/minecraft/setup
-    echo '        java -jar installer.jar --installServer' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar' >> ~/servers/minecraft/setup
-    echo '        rm installer.jar.log' >> ~/servers/minecraft/setup
-    echo '        mv forge-*.jar server.jar' >> ~/servers/minecraft/setup
-    echo '        cd ..' >> ~/servers/minecraft/setup
-    echo '        echo "java -Xmx12G -jar server.jar" > sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        chmod +x sponge-$ver/start' >> ~/servers/minecraft/setup
-    echo '        echo "screen -dmS sponge-$ver ~/servers/minecraft/sponge-$ver/start" > sponge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        chmod +x sponge-$ver/screen' >> ~/servers/minecraft/setup
-    echo '        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        echo "eula=true" > sponge-$ver/eula.txt' >> ~/servers/minecraft/setup
-    echo '        curl https://noahcou.github.io/fishcurl/sponge/$2/sponge.jar -o sponge-$ver/mods/sponge.jar' >> ~/servers/minecraft/setup
-    echo '    ;;' >> ~/servers/minecraft/setup
-    echo '' >> ~/servers/minecraft/setup
     echo '    *)' >> ~/servers/minecraft/setup
-    echo '        echo "To check available versions for v, b, f, s; See:"' >> ~/servers/minecraft/setup
+    echo '        echo "To check available versions for v; See:"' >> ~/servers/minecraft/setup
     echo '        echo "https://noahcou.github.io/fishcurl/ OR"' >> ~/servers/minecraft/setup
     echo '        echo "https://github.com/noahcou/fishcurl/"' >> ~/servers/minecraft/setup
-    echo '        echo "Typically I only like to add 1.14.4 and later as those are multithread compatible"' >> ~/servers/minecraft/setup
+    echo '        echo "Typically I only like to add 1.14.4 and later as those are multithread compatible I believe (maybe not)"' >> ~/servers/minecraft/setup
     echo '        echo "Here are the available options"' >> ~/servers/minecraft/setup
     echo '        echo " - First Argument - (one letter also works!)"' >> ~/servers/minecraft/setup
     echo '        echo "vanilla - install a vanilla server (pulls from my own files)"' >> ~/servers/minecraft/setup
     echo '        echo "paper - install a paper plugin server"' >> ~/servers/minecraft/setup
     echo '        echo "waterfall - install a waterfall server - versioning is 1.15 not 1.15.2!"' >> ~/servers/minecraft/setup
-    echo '        echo "bedrock - install a bedrock server (pulls from my own files)"' >> ~/servers/minecraft/setup
-    echo '        echo "forge - install a standard modded minecraft server (pulls from my own files)"' >> ~/servers/minecraft/setup
-    echo '        echo "sponge - install a modded plugin compatible server (in testing)"' >> ~/servers/minecraft/setup
     echo '        echo " - Second Argument - "' >> ~/servers/minecraft/setup
     echo '        echo "Put MC version here - 1.15.2 - Please use that standard format!"' >> ~/servers/minecraft/setup
     echo '        echo " - Third Argument - (OPTIONAL)"' >> ~/servers/minecraft/setup

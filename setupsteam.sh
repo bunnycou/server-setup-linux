@@ -1,7 +1,5 @@
 #!/bin/sh
 
-
-
 case $1 in
     help|h|-h|-help) 
 

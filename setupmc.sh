@@ -12,7 +12,9 @@ then
                 echo "Updating Paper-$ver . . ."
                 rm paper-$ver/server-*.jar
 
-                # DOWNLOAD TODO
+                python3 ./bin/mchelper.py paper $2
+                curl -o ./paper-$ver/server-$2.jar $(cat url.txt)
+                rm -r url.txt
 
                 echo "while true; do" > paper-$ver/start
                 echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start
@@ -26,7 +28,9 @@ then
                 echo "updating Waterfall!"
                 rm waterfall-$ver/waterfall-*.jar
 
-                # DOWNLOAD TODO
+                python3 ./bin/mchelper.py waterfall $2
+                curl -o ./waterfall-$ver/waterfall-$2.jar $(cat url.txt)
+                rm -r url.txt
 
                 echo "while true; do" > waterfall-$ver/start
                 echo "java -jar waterfall-$2.jar" >> waterfall-$ver/start
@@ -49,7 +53,9 @@ case $1 in
     paper|p)
         mkdir paper-$ver
         
-        # DOWNLOAD TODO
+        python3 ./bin/mchelper.py paper $2
+        curl -o ./paper-$ver/server-$2.jar $(cat url.txt)
+        rm -r url.txt
 
         echo "while true; do" > paper-$ver/start
         echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start
@@ -66,7 +72,9 @@ case $1 in
     waterfall|w)
         mkdir waterfall-$ver
         
-        # DOWNLOAD TODO
+        python3 ./bin/mchelper.py waterfall $2
+        curl -o ./waterfall-$ver/waterfall-$2.jar $(cat url.txt)
+        rm -r url.txt
 
         echo "while true; do" > waterfall-$ver/start
         echo "java -jar waterfall-$2.jar" >> waterfall-$ver/start
@@ -82,19 +90,20 @@ case $1 in
         echo "Here are the available options"
         echo " - First Argument - (one letter also works!)"
         echo "paper - paper plugin server"
-        echo "waterfall - waterfall bungee server - versioning is 1.16 not 1.16.4!"
+        echo "waterfall - waterfall bungee server - versioning is 1.16 not 1.16.5!"
         echo " - Second Argument - "
-        echo "Put MC version here - 1.16.4 - Please use that standard format!"
+        echo "Put MC version here - 1.16.5 - Please use that standard format!"
         echo " - Third Argument - (OPTIONAL)"
         echo "Optionally put a name for your server folder here"
-        echo "Default is /paper-1.16.4 (/type-version)"
-        echo "If you include this Argument it will be /type-customtext"
+        echo "Default is /paper-1.16.5 (/type-version)"
+        echo "If you include this Argument it will be /customtext"
         echo "No Spaces Allowed"
         echo " - Fourth Argument - (OPTIONAL)"
         echo "u - Update the server.jar"
         echo "DO NOT USE when changing the major minecraft version, only minor"
-        echo "Third argument becomes required, make it the same as your second argument if you did not use a custom name"
-        echo "./setup p 1.16.4 1.16.4 u"
-        echo "./setup p 1.16.4 coolserv u"
+        echo "Third argument becomes required" 
+        echo "Make it the name of the folder version if you did not use a custom name"
+        echo "./setup p 1.16.5 1.16.4 u"
+        echo "./setup p 1.16.5 coolserv u"
     ;;
 esac

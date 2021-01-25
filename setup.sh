@@ -5,7 +5,9 @@ case $1 in
     echo "Installing Dependenices . . ."
     # setupmc
     sudo apt-get update
-    sudo apt-get install openjdk-11-jre-headless openjdk-11-jdk-headless
+    sudo apt-get install -y openjdk-11-jdk-headless python3 python3-pip libcurl4
+    sudo pip3 install pycurl
+    sudo pip3 install certifi
 
     echo "Creating Folders and Scripts . . ."
     # createmc
@@ -32,7 +34,7 @@ case $1 in
     sudo add-apt-repository multiverse
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install lib32gcc1 libtinfo5 libtinfo5:i386 steamcmd
+    sudo apt-get install -y lib32gcc1 libtinfo5 libtinfo5:i386 steamcmd
 
     echo "Creating Folders and Scripts . . ."
     # createsteam
@@ -63,14 +65,14 @@ case $1 in
     echo "Installing Dependencies for MC . . ."
     #setupmc
     sudo apt-get update
-    sudo apt-get install openjdk-8-jre-headless openjdk-8-jdk-headless unzip
+    sudo apt-get install -y openjdk-11-jdk-headless python3 python3-pip
 
     echo "Installing Dependencies for Steam . . ."
     # setupsteam
     sudo add-apt-repository multiverse
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install lib32gcc1 libtinfo5 libtinfo5:i386 steamcmd
+    sudo apt-get install -y lib32gcc1 libtinfo5 libtinfo5:i386 steamcmd
 
     echo "Creating Folders and Scripts for MC . . ."
     # createmc

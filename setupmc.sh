@@ -12,7 +12,7 @@ then
                 echo "Updating Paper-$ver . . ."
                 rm paper-$ver/server-*.jar
 
-                python3 ./bin/mchelper.py paper $2
+                python3 ./bin/helper.py paper $2
                 curl -o ./paper-$ver/server-$2.jar $(cat url.txt)
                 rm -r url.txt
 
@@ -28,7 +28,7 @@ then
                 echo "updating Waterfall!"
                 rm waterfall-$ver/waterfall-*.jar
 
-                python3 ./bin/mchelper.py waterfall $2
+                python3 ./bin/helper.py waterfall $2
                 curl -o ./waterfall-$ver/waterfall-$2.jar $(cat url.txt)
                 rm -r url.txt
 
@@ -53,7 +53,7 @@ case $1 in
     paper|p)
         mkdir paper-$ver
         
-        python3 ./bin/mchelper.py paper $2
+        python3 ./bin/helper.py paper $2
         curl -o ./paper-$ver/server-$2.jar $(cat url.txt)
         rm -r url.txt
 
@@ -72,7 +72,7 @@ case $1 in
     waterfall|w)
         mkdir waterfall-$ver
         
-        python3 ./bin/mchelper.py waterfall $2
+        python3 ./bin/helper.py waterfall $2
         curl -o ./waterfall-$ver/waterfall-$2.jar $(cat url.txt)
         rm -r url.txt
 

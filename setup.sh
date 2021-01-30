@@ -7,7 +7,6 @@ case $1 in
     sudo apt-get update
     sudo apt-get install -y openjdk-11-jdk-headless python3 python3-pip libcurl4
     sudo pip3 install pycurl
-    sudo pip3 install certifi
 
     echo "Creating Folders and Scripts . . ."
     # createmc
@@ -66,6 +65,7 @@ case $1 in
     #setupmc
     sudo apt-get update
     sudo apt-get install -y openjdk-11-jdk-headless python3 python3-pip
+    sudo pip3 install pycurl
 
     echo "Installing Dependencies for Steam . . ."
     # setupsteam

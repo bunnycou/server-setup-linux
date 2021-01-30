@@ -89,6 +89,8 @@ case $1 in
 
     curl -o helper.py https://raw.githubusercontent.com/noahcou/server-setup-lin/main/mchelper.py
 
+    cd ~
+
 
     echo "Creating Folders and Scripts for Steam . . ."
     # createsteam

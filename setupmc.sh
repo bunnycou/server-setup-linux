@@ -9,19 +9,19 @@ then
         ver=$3
         case $1 in # 'exit 130' to exit
             paper|p)
-                echo "Updating Paper-$ver . . ."
-                rm paper-$ver/server-*.jar
+                echo "Updating $ver-paper . . ."
+                rm $ver-paper/server-*.jar
 
                 python3 ./bin/helper.py paper $2
-                curl -o ./paper-$ver/server-$2.jar $(cat url.txt)
+                curl -o ./$ver-paper/server-$2.jar $(cat url.txt)
                 rm -r url.txt
 
-                echo "while true; do" > paper-$ver/start
-                echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start
-                echo "echo Restarting in 15 seconds..." >> paper-$ver/start
-                echo "sleep 15" >> paper-$ver/start
-                echo "done" >> paper-$ver/start
-                chmod +x paper-$ver/start
+                echo "while true; do" > $ver-paper/start
+                echo "java -Xmx8G -jar server-$2.jar" >> $ver-paper/start
+                echo "echo Restarting in 15 seconds..." >> $ver-paper/start
+                echo "sleep 15" >> $ver-paper/start
+                echo "done" >> $ver-paper/start
+                chmod +x $ver-paper/start
             ;;
 
             waterfall|w)
@@ -51,22 +51,22 @@ fi
 
 case $1 in
     paper|p)
-        mkdir paper-$ver
+        mkdir $ver-paper
         
         python3 ./bin/helper.py paper $2
-        curl -o ./paper-$ver/server-$2.jar $(cat url.txt)
+        curl -o ./$ver-paper/server-$2.jar $(cat url.txt)
         rm -r url.txt
 
-        echo "while true; do" > paper-$ver/start
-        echo "java -Xmx8G -jar server-$2.jar" >> paper-$ver/start
-        echo "echo Restarting in 15 seconds..." >> paper-$ver/start
-        echo "sleep 15" >> paper-$ver/start
-        echo "done" >> paper-$ver/start
-        chmod +x paper-$ver/start
-        echo "screen -dmS paper-$ver ~/servers/minecraft/paper-$ver/start" > paper-$ver/screen
-        chmod +x paper-$ver/screen
-        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > paper-$ver/eula.txt
-        echo "eula=true" > paper-$ver/eula.txt
+        echo "while true; do" > $ver-paper/start
+        echo "java -Xmx8G -jar server-$2.jar" >> $ver-paper/start
+        echo "echo Restarting in 15 seconds..." >> $ver-paper/start
+        echo "sleep 15" >> $ver-paper/start
+        echo "done" >> $ver-paper/start
+        chmod +x $ver-paper/start
+        echo "screen -dmS $ver-paper ~/servers/minecraft/$ver-paper/start" > $ver-paper/screen
+        chmod +x $ver-paper/screen
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > $ver-paper/eula.txt
+        echo "eula=true" > $ver-paper/eula.txt
     ;;
 
     waterfall|w)

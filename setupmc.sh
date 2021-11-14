@@ -8,20 +8,18 @@ then
     then
         ver=$3
         case $1 in # 'exit 130' to exit
-            paper|p)
-                echo "Updating $ver-paper . . ."
-                rm $ver-paper/server-*.jar
+            purpur|p)
+                echo "Updating $ver-purpur . . ."
+                rm $ver-purpur/server-*.jar
 
-                python3 ./bin/helper.py paper $2
-                curl -o ./$ver-paper/server-$2.jar $(cat url.txt)
-                rm -r url.txt
+                curl -o ./$ver-purpur/server-$2.jar https://api.pl3x.net/v2/purpur/$2/latest/download
 
-                echo "while true; do" > $ver-paper/start
-                echo "java -Xmx8G -jar server-$2.jar" >> $ver-paper/start
-                echo "echo Restarting in 15 seconds..." >> $ver-paper/start
-                echo "sleep 15" >> $ver-paper/start
-                echo "done" >> $ver-paper/start
-                chmod +x $ver-paper/start
+                echo "while true; do" > $ver-purpur/start
+                echo "java -Xmx8G -jar server-$2.jar" >> $ver-purpur/start
+                echo "echo Restarting in 15 seconds..." >> $ver-purpur/start
+                echo "sleep 15" >> $ver-purpur/start
+                echo "done" >> $ver-purpur/start
+                chmod +x $ver-purpur/start
             ;;
 
             waterfall|w)
@@ -50,23 +48,21 @@ else
 fi
 
 case $1 in
-    paper|p)
-        mkdir $ver-paper
+    purpur|p)
+        mkdir $ver-purpur
         
-        python3 ./bin/helper.py paper $2
-        curl -o ./$ver-paper/server-$2.jar $(cat url.txt)
-        rm -r url.txt
+        curl -o ./$ver-purpur/server-$2.jar https://api.pl3x.net/v2/purpur/$2/latest/download
 
-        echo "while true; do" > $ver-paper/start
-        echo "java -Xmx8G -jar server-$2.jar" >> $ver-paper/start
-        echo "echo Restarting in 15 seconds..." >> $ver-paper/start
-        echo "sleep 15" >> $ver-paper/start
-        echo "done" >> $ver-paper/start
-        chmod +x $ver-paper/start
-        echo "screen -dmS $ver-paper ~/servers/minecraft/$ver-paper/start" > $ver-paper/screen
-        chmod +x $ver-paper/screen
-        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > $ver-paper/eula.txt
-        echo "eula=true" > $ver-paper/eula.txt
+        echo "while true; do" > $ver-purpur/start
+        echo "java -Xmx8G -jar server-$2.jar" >> $ver-purpur/start
+        echo "echo Restarting in 15 seconds..." >> $ver-purpur/start
+        echo "sleep 15" >> $ver-purpur/start
+        echo "done" >> $ver-purpur/start
+        chmod +x $ver-purpur/start
+        echo "screen -dmS $ver-purpur ~/servers/minecraft/$ver-purpur/start" > $ver-purpur/screen
+        chmod +x $ver-purpur/screen
+        echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > $ver-purpur/eula.txt
+        echo "eula=true" > $ver-purpur/eula.txt
     ;;
 
     waterfall|w)
@@ -89,13 +85,13 @@ case $1 in
     *)
         echo "Here are the available options"
         echo " - First Argument - (one letter also works!)"
-        echo "paper - paper plugin server"
-        echo "waterfall - waterfall bungee server - versioning is 1.16 not 1.16.5!"
+        echo "purpur - purpur plugin server"
+        echo "waterfall - waterfall bungee server - versioning is 1.16 instead of 1.16.5!"
         echo " - Second Argument - "
         echo "Put MC version here - 1.16.5 - Please use that standard format!"
         echo " - Third Argument - (OPTIONAL)"
         echo "Optionally put a name for your server folder here"
-        echo "Default is /1.16.5-paper (/version-type)"
+        echo "Default is /1.16.5-purpur (/version-type)"
         echo "If you include this Argument it will be /customtext-type"
         echo "No Spaces Allowed"
         echo " - Fourth Argument - (OPTIONAL)"

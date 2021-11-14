@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $1 in
-    setupmc|minecraft|mc|m)
+    minecraft|mc|m)
     echo "Installing Dependenices . . ."
     # setupmc
     sudo apt-get update
@@ -27,7 +27,7 @@ case $1 in
 
     ;;
 
-    setupsteam|steam|s)
+    steam|s)
     echo "Installing Dependencies . . ."
     # setupsteam
     sudo add-apt-repository multiverse
@@ -60,7 +60,7 @@ case $1 in
 
     ;;
 
-    setupboth|both|b)
+    both|b)
     echo "Installing Dependencies for MC . . ."
     #setupmc
     sudo apt-get update
@@ -119,9 +119,9 @@ case $1 in
 
     *)
     echo "Here are the options (single letters are also accepted [m, s, b])"
-    echo "setupmc - setup Minecraft server dependencies and folders"
-    echo "setupsteam - setup Steam server dependencies and folders as well as steamcmd"
-    echo "setupboth - run both of the above ^"
+    echo "minecraft - setup Minecraft server dependencies and folders"
+    echo "steam - setup Steam server dependencies and folders as well as steamcmd"
+    echo "both - run both of the options listed above"
 
     ;;
 esac

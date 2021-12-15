@@ -12,7 +12,7 @@ then
                 echo "Updating $ver-purpur . . ."
                 rm $ver-purpur/server-*.jar
 
-                curl -o ./$ver-purpur/server-$2.jar https://api.pl3x.net/v2/purpur/$2/latest/download
+                curl -o ./$ver-purpur/server-$2.jar https://api.purpurmc.org/v2/purpur/$2/latest/download
 
                 echo "while true; do" > $ver-purpur/start
                 echo "java -Xmx8G -jar server-$2.jar" >> $ver-purpur/start
@@ -51,7 +51,7 @@ case $1 in
     purpur|p)
         mkdir $ver-purpur
         
-        curl -o ./$ver-purpur/server-$2.jar https://api.pl3x.net/v2/purpur/$2/latest/download
+        curl -o ./$ver-purpur/server-$2.jar https://api.purpurmc.org/v2/purpur/$2/latest/download
 
         echo "while true; do" > $ver-purpur/start
         echo "java -Xmx8G -jar server-$2.jar" >> $ver-purpur/start

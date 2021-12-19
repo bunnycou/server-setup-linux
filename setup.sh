@@ -11,16 +11,11 @@ case $1 in
     # createmc
     mkdir ~/servers/
     mkdir ~/servers/minecraft
-    mkdir ~/servers/minecraft/bin
 
     cd ~/servers/minecraft
 
     curl -o setup https://raw.githubusercontent.com/noahcou/server-setup-lin/main/setupmc.sh
     chmod +x ~/servers/minecraft/setup
-
-    cd ./bin
-
-    curl -o helper.py https://raw.githubusercontent.com/noahcou/server-setup-lin/main/mchelper.py
 
     cd ~
 
@@ -76,16 +71,11 @@ case $1 in
     # createmc
     mkdir ~/servers/
     mkdir ~/servers/minecraft
-    mkdir ~/servers/minecraft/bin
 
     cd ~/servers/minecraft
 
     curl -o setup https://raw.githubusercontent.com/noahcou/server-setup-lin/main/setupmc.sh
     chmod +x ~/servers/minecraft/setup
-
-    cd ./bin
-
-    curl -o helper.py https://raw.githubusercontent.com/noahcou/server-setup-lin/main/mchelper.py
 
     cd ~
 

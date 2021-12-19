@@ -48,7 +48,6 @@ case $1 in
         echo "# EULA (https://account.mojang.com/documents/minecraft_eula)" > $ver-purpur/eula.txt
         echo "eula=true" > $ver-purpur/eula.txt
     ;;
-    ;;
 
     *)
         echo "Here are the available options"

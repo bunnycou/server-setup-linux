@@ -5,8 +5,7 @@ case $1 in
     echo "Installing Dependenices . . ."
     # setupmc
     sudo apt-get update
-    sudo apt-get install -y openjdk-16-jdk-headless python3 python3-pip libcurl4
-    sudo pip3 install pycurl
+    sudo apt-get install -y openjdk-17-jdk-headless
 
     echo "Creating Folders and Scripts . . ."
     # createmc
@@ -64,8 +63,7 @@ case $1 in
     echo "Installing Dependencies for MC . . ."
     #setupmc
     sudo apt-get update
-    sudo apt-get install -y openjdk-11-jdk-headless python3 python3-pip
-    sudo pip3 install pycurl
+    sudo apt-get install -y openjdk-17-jdk-headless
 
     echo "Installing Dependencies for Steam . . ."
     # setupsteam

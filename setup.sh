@@ -45,6 +45,8 @@ case $1 in
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' >> ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0' >> ~/servers/steam/enableipv6
     chmod +x ~/servers/steam/enableipv6
+    
+    cd ~/servers/steam
 
     curl -o setup https://raw.githubusercontent.com/noahcou/server-setup-lin/main/setupsteam.sh
 
@@ -96,6 +98,8 @@ case $1 in
     echo 'sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0' >> ~/servers/steam/enableipv6
     echo 'sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0' >> ~/servers/steam/enableipv6
     chmod +x ~/servers/steam/enableipv6
+    
+    cd ~/servers/steam
 
     curl -o setup https://raw.githubusercontent.com/noahcou/server-setup-lin/main/setupsteam.sh
 

@@ -4,7 +4,7 @@ This is just the project repository for server-setup-lin. DO NOT CLONE THIS REPO
 
 To obtain the setup.sh on your server do:
 
-`curl -L https://raw.githubusercontent.com/noahcou/server-setup-linux/main/setup.sh -o serversetup ; chmod +x serversetup`
+`curl -L https://raw.githubusercontent.com/noahcou/server-setup-linux/main/setup.sh -o setupservers ; chmod +x serversetup`
 
 All you need is the setup.sh
 
